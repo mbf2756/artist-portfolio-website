@@ -106,15 +106,15 @@ const ArtistPortfolio = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900" style={{ fontFamily: "'Lora', serif" }}>
       {/* Navigation */}
-<nav className="sticky top-0 bg-white border-b border-gray-200 z-40">
-  <div className="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between">
-    <img 
-      src="/logo.png" 
-      alt="AshaArtSHED Logo" 
-      className="h-16 object-contain"
-      style={{ maxWidth: '300px' }}
-    />
-    <div className="flex gap-6 text-sm">
+      <nav className="sticky top-0 bg-white border-b border-gray-200 z-40">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+          <img 
+            src="/logo.png" 
+            alt="AshaArtSHED Logo" 
+            className="h-20 object-contain"
+            style={{ maxWidth: '350px' }}
+          />
+          <div className="flex gap-6 text-sm">
             {['home', 'gallery', 'contact', 'faq'].map(section => (
               <button
                 key={section}
