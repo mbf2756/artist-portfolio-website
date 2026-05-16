@@ -111,8 +111,8 @@ const ArtistPortfolio = () => {
           <img 
             src="/logo.png" 
             alt="AshaArtSHED Logo" 
-            className="h-24 object-contain"
-            style={{ maxWidth: '400px' }}
+            className="h-32 object-contain"
+            style={{ maxWidth: '500px' }}
           />
           <div className="flex gap-8 text-sm">
             {['home', 'gallery', 'contact', 'faq'].map(section => (
