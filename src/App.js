@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, ChevronDown, Search, X } from 'lucide-react';
+import { Mail, Phone, MapPin, ChevronDown, X } from 'lucide-react';
 
 const ArtistPortfolio = () => {
   const [selectedImage, setSelectedImage] = useState(null);
