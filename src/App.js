@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, ChevronDown, X } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const ArtistPortfolio = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -11,7 +12,14 @@ const ArtistPortfolio = () => {
     message: ''
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formError, setFormError] = useState('');
   const [activeSection, setActiveSection] = useState('home');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Initialize EmailJS - Replace with YOUR PUBLIC KEY
+  useEffect(() => {
+    emailjs.init('YOUR_PUBLIC_KEY_HERE');
+  }, []);
 
   // Sample artwork data - replace with actual images
   const artworks = [
@@ -56,17 +64,43 @@ const ArtistPortfolio = () => {
       ...prev,
       [name]: value
     }));
+    setFormError(''); // Clear error when user starts typing
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In a real app, this would send to a backend
-    console.log('Form data:', formData);
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', message: '' });
-    }, 3000);
+    setIsSubmitting(true);
+    setFormError('');
+
+    try {
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        'YOUR_SERVICE_ID_HERE', // Replace with your Service ID
+        'YOUR_TEMPLATE_ID_HERE', // Replace with your Template ID
+        {
+          to_email: 'your.email@example.com', // Replace with your actual email
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }
+      );
+
+      if (result.status === 200) {
+        setFormSubmitted(true);
+        setFormData({ name: '', email: '', phone: '', message: '' });
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          setFormSubmitted(false);
+        }, 5000);
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setFormError('Failed to send inquiry. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -74,9 +108,12 @@ const ArtistPortfolio = () => {
       {/* Navigation */}
       <nav className="sticky top-0 bg-white border-b border-gray-200 z-40">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Artist's Studio
-          </div>
+          <img 
+            src="/logo.png" 
+            alt="AshaArtSHED Logo" 
+            className="h-16 object-contain"
+            style={{ maxWidth: '280px' }}
+          />
           <div className="flex gap-8 text-sm">
             {['home', 'gallery', 'contact', 'faq'].map(section => (
               <button
@@ -240,15 +277,24 @@ const ArtistPortfolio = () => {
                       placeholder="Tell me about your commission idea..."
                     ></textarea>
                   </div>
+                  
+                  {formError && (
+                    <p className="mb-4 text-red-600 text-sm font-semibold">
+                      {formError}
+                    </p>
+                  )}
+                  
                   <button
                     type="submit"
-                    className="w-full bg-amber-900 text-white py-3 rounded font-semibold hover:bg-amber-800 transition"
+                    disabled={isSubmitting}
+                    className="w-full bg-amber-900 text-white py-3 rounded font-semibold hover:bg-amber-800 transition disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send Inquiry
+                    {isSubmitting ? 'Sending...' : 'Send Inquiry'}
                   </button>
+                  
                   {formSubmitted && (
                     <p className="mt-4 text-green-600 text-center font-semibold">
-                      Thank you! I'll be in touch soon.
+                      ✓ Thank you! Your inquiry has been sent. I'll contact you soon!
                     </p>
                   )}
                 </form>
@@ -380,7 +426,7 @@ const ArtistPortfolio = () => {
       <footer className="bg-gray-900 text-white py-8 mt-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Artist's Studio
+            AshaArtSHED
           </p>
           <p className="text-gray-400 text-sm">
             © 2024 All rights reserved. Custom commissions available worldwide.
