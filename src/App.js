@@ -16,9 +16,9 @@ const ArtistPortfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Initialize EmailJS - Replace with YOUR PUBLIC KEY
+  // Initialize EmailJS with your Public Key
   useEffect(() => {
-    emailjs.init('YOUR_PUBLIC_KEY_HERE');
+    emailjs.init('Pmhf_2RyBSjCYmGHY');
   }, []);
 
   // Sample artwork data - replace with actual images
@@ -75,10 +75,10 @@ const ArtistPortfolio = () => {
     try {
       // Send email using EmailJS
       const result = await emailjs.send(
-        'YOUR_SERVICE_ID_HERE', // Replace with your Service ID
-        'YOUR_TEMPLATE_ID_HERE', // Replace with your Template ID
+        'service_m66xtu9', // Your Service ID
+        'template_80u6eem', // Your Template ID
         {
-          to_email: 'your.email@example.com', // Replace with your actual email
+          to_email: 'ashanujose@gmail.com', // Your email address
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -311,7 +311,7 @@ const ArtistPortfolio = () => {
                       <Mail className="w-6 h-6 text-amber-900 flex-shrink-0 mt-1" />
                       <div>
                         <p className="font-semibold">Email</p>
-                        <p className="text-gray-600">your.email@example.com</p>
+                        <p className="text-gray-600">ashanujose@gmail.com</p>
                       </div>
                     </div>
                     <div className="flex gap-4">
