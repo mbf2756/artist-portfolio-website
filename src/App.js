@@ -488,58 +488,61 @@ const ArtistPortfolio = () => {
         </section>
       )}
 
-      {/* Image Lightbox - FIXED with object-fit contain */}
+      {/* Image Lightbox - COMPACT VERSION */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-75 z-50 flex flex-col items-center justify-center p-4"
+          className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-2"
           onClick={() => setSelectedImage(null)}
         >
           <div 
-            className="bg-white rounded-lg overflow-hidden w-full" 
-            style={{ maxWidth: '90vw', maxHeight: '90vh', display: 'flex', flexDirection: 'column' }}
+            className="bg-white rounded-lg overflow-hidden w-full relative"
+            style={{ maxWidth: '85vw', maxHeight: '95vh' }}
             onClick={e => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition z-10"
-              style={{ margin: '16px' }}
+              className="absolute top-3 right-3 bg-white rounded-full p-1.5 hover:bg-gray-100 transition z-10 shadow-md"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
 
-            {/* Image Container */}
-            <div 
-              className="flex items-center justify-center bg-gray-100"
-              style={{ flex: 1, minHeight: '300px' }}
-            >
-              <img 
-                src={selectedImage.image} 
-                alt={selectedImage.title}
-                style={{ 
-                  maxWidth: '100%',
-                  maxHeight: '100%',
-                  objectFit: 'contain',
-                  display: 'block'
-                }}
-              />
-            </div>
-
-            {/* Details Section */}
-            <div className="p-6 bg-white border-t border-gray-200 overflow-y-auto" style={{ maxHeight: '200px' }}>
-              <h3 className="text-2xl font-bold mb-2">{selectedImage.title}</h3>
-              <p className="text-gray-600 mb-1">{selectedImage.category}</p>
-              <p className="text-sm text-gray-500 mb-4">Size: {selectedImage.size}</p>
-              <p className="text-amber-900 font-semibold text-lg mb-4">Price Range: {selectedImage.price}</p>
-              <button
-                onClick={() => {
-                  setSelectedImage(null);
-                  setActiveSection('contact');
-                }}
-                className="w-full bg-amber-900 text-white py-2 rounded hover:bg-amber-800 transition"
+            {/* Main Container - Image + Details Side by Side on Desktop */}
+            <div className="flex flex-col lg:flex-row h-full" style={{ maxHeight: '95vh' }}>
+              {/* Image Container */}
+              <div 
+                className="flex items-center justify-center bg-gray-100"
+                style={{ flex: 1, minHeight: '300px' }}
               >
-                Commission Similar Work
-              </button>
+                <img 
+                  src={selectedImage.image} 
+                  alt={selectedImage.title}
+                  style={{ 
+                    maxWidth: '100%',
+                    maxHeight: '100%',
+                    objectFit: 'contain',
+                    display: 'block',
+                    padding: '10px'
+                  }}
+                />
+              </div>
+
+              {/* Details Container - Compact */}
+              <div className="bg-white p-4 lg:p-5 border-t lg:border-t-0 lg:border-l border-gray-200" style={{ width: '100%', maxWidth: '280px', overflowY: 'auto' }}>
+                <h3 className="text-xl font-bold mb-1">{selectedImage.title}</h3>
+                <p className="text-sm text-gray-600 mb-0.5">{selectedImage.category}</p>
+                <p className="text-xs text-gray-500 mb-2">Size: {selectedImage.size}</p>
+                <p className="text-amber-900 font-semibold text-base mb-3">Price: {selectedImage.price}</p>
+                <button
+                  onClick={() => {
+                    setSelectedImage(null);
+                    setActiveSection('contact');
+                  }}
+                  className="w-full bg-amber-900 text-white py-2 rounded text-sm font-semibold hover:bg-amber-800 transition"
+                >
+                  Commission Similar Work
+                </button>
+              </div>
             </div>
           </div>
         </div>
