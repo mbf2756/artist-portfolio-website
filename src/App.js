@@ -488,27 +488,45 @@ const ArtistPortfolio = () => {
         </section>
       )}
 
-      {/* Image Lightbox - FIXED to show entire image */}
+      {/* Image Lightbox - FIXED with object-fit contain */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4 overflow-y-auto"
+          className="fixed inset-0 bg-black bg-opacity-75 z-50 flex flex-col items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
-          <div className="bg-white rounded-lg overflow-hidden my-auto" style={{ maxWidth: '90%', maxHeight: '90vh' }} onClick={e => e.stopPropagation()}>
-            <div className="relative flex justify-center" style={{ maxHeight: 'calc(90vh - 200px)' }}>
+          <div 
+            className="bg-white rounded-lg overflow-hidden w-full" 
+            style={{ maxWidth: '90vw', maxHeight: '90vh', display: 'flex', flexDirection: 'column' }}
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition z-10"
+              style={{ margin: '16px' }}
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Image Container */}
+            <div 
+              className="flex items-center justify-center bg-gray-100"
+              style={{ flex: 1, minHeight: '300px' }}
+            >
               <img 
                 src={selectedImage.image} 
-                alt={selectedImage.title} 
-                style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }}
+                alt={selectedImage.title}
+                style={{ 
+                  maxWidth: '100%',
+                  maxHeight: '100%',
+                  objectFit: 'contain',
+                  display: 'block'
+                }}
               />
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition"
-              >
-                <X className="w-6 h-6" />
-              </button>
             </div>
-            <div className="p-6 bg-white overflow-y-auto" style={{ maxHeight: '200px' }}>
+
+            {/* Details Section */}
+            <div className="p-6 bg-white border-t border-gray-200 overflow-y-auto" style={{ maxHeight: '200px' }}>
               <h3 className="text-2xl font-bold mb-2">{selectedImage.title}</h3>
               <p className="text-gray-600 mb-1">{selectedImage.category}</p>
               <p className="text-sm text-gray-500 mb-4">Size: {selectedImage.size}</p>
