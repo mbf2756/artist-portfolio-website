@@ -21,24 +21,24 @@ const ArtistPortfolio = () => {
     emailjs.init('Pmhf_2RyBSjCYmGHY');
   }, []);
 
-  // Artwork data - All 16 pieces from GitHub
+  // Artwork data - All 16 pieces from GitHub with PNG extension
   const artworks = [
-    { id: 1, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (1).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 2, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (2).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 3, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (3).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 4, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (4).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 5, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (5).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 6, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (6).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 7, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (7).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 8, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (8).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 9, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (9).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 10, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (10).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 11, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (11).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 12, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (12).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 13, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (13).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 14, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (14).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 15, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (15).jpg', size: 'A4 Paper', price: '$150-200' },
-    { id: 16, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (16).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 1, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (1).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 2, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (2).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 3, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (3).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 4, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (4).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 5, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (5).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 6, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (6).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 7, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (7).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 8, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (8).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 9, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (9).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 10, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (10).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 11, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (11).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 12, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (12).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 13, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (13).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 14, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (14).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 15, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (15).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 16, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (16).png', size: 'A4 Paper', price: '$150-200' },
   ];
 
   const faqData = [
