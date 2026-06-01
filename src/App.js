@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, ChevronDown, X } from 'lucide-react';
+import { Mail, Phone, MapPin, ChevronDown, X, Sparkles, Heart, Eye } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const ArtistPortfolio = () => {
@@ -21,7 +21,62 @@ const ArtistPortfolio = () => {
     emailjs.init('Pmhf_2RyBSjCYmGHY');
   }, []);
 
-  // Artwork data - All 16 pieces from GitHub with PNG extension
+  // Featured works for home page
+  const featuredWorks = [
+    { id: 1, title: 'Mother & Child', image: '/images/image (1).png', price: '$150-200' },
+    { id: 2, title: 'Serene Portrait', image: '/images/image (2).png', price: '$150-200' },
+    { id: 3, title: 'Intimate Moment', image: '/images/image (3).png', price: '$150-200' },
+    { id: 4, title: 'Family Bond', image: '/images/image (4).png', price: '$150-200' },
+  ];
+
+  // Testimonials
+  const testimonials = [
+    {
+      name: 'Sarah Mitchell',
+      text: 'Asha captured the essence of our family in the most beautiful way. The detail and emotion in her work is truly extraordinary.',
+      role: 'Commissioned Portrait Client'
+    },
+    {
+      name: 'James Chen',
+      text: 'I was amazed at how lifelike and expressive the portrait turned out. Asha is a true artist who brings her subjects to life.',
+      role: 'Oil Painting Commission'
+    },
+    {
+      name: 'Emma Williams',
+      text: 'Professional, talented, and deeply passionate about her craft. Worth every penny. Highly recommended!',
+      role: 'Pencil Sketch Client'
+    }
+  ];
+
+  // Why choose Asha
+  const whyChoose = [
+    {
+      icon: Eye,
+      title: 'Exceptional Attention to Detail',
+      description: 'Every stroke, shadow, and expression is carefully crafted to capture the soul of your subject.'
+    },
+    {
+      icon: Heart,
+      title: 'Personalized Approach',
+      description: 'Each commission is treated as a unique artistic journey, tailored to your vision and story.'
+    },
+    {
+      icon: Sparkles,
+      title: 'Timeless Quality',
+      description: '17+ years of professional experience using traditional techniques that stand the test of time.'
+    }
+  ];
+
+  // Process steps
+  const processSteps = [
+    { number: '1', title: 'Consultation', description: 'Share your vision and reference images' },
+    { number: '2', title: 'Quote & Timeline', description: 'Receive custom pricing and timeline' },
+    { number: '3', title: 'Deposit & Creation', description: '50% deposit secures your spot' },
+    { number: '4', title: 'Progress Updates', description: 'Regular updates on your artwork' },
+    { number: '5', title: 'Completion', description: 'Final payment and artwork delivery' }
+  ];
+
+  // All artwork data
   const artworks = [
     { id: 1, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (1).png', size: 'A4 Paper', price: '$150-200' },
     { id: 2, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (2).png', size: 'A4 Paper', price: '$150-200' },
@@ -74,7 +129,7 @@ const ArtistPortfolio = () => {
       ...prev,
       [name]: value
     }));
-    setFormError(''); // Clear error when user starts typing
+    setFormError('');
   };
 
   const handleSubmit = async (e) => {
@@ -83,12 +138,11 @@ const ArtistPortfolio = () => {
     setFormError('');
 
     try {
-      // Send email using EmailJS
       const result = await emailjs.send(
-        'service_m66xtu9', // Your Service ID
-        'template_80u6eem', // Your Template ID
+        'service_m66xtu9',
+        'template_80u6eem',
         {
-          to_email: 'ashanujose@gmail.com', // Your email address
+          to_email: 'ashanujose@gmail.com',
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -100,7 +154,6 @@ const ArtistPortfolio = () => {
         setFormSubmitted(true);
         setFormData({ name: '', email: '', phone: '', message: '' });
         
-        // Hide success message after 5 seconds
         setTimeout(() => {
           setFormSubmitted(false);
         }, 5000);
@@ -142,54 +195,215 @@ const ArtistPortfolio = () => {
         </div>
       </nav>
 
-      {/* Home Section */}
+      {/* Home Section - ENHANCED */}
       {activeSection === 'home' && (
-        <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 via-white to-orange-50 overflow-hidden">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <h1 className="text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Bespoke Artistry
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Custom portrait sketches and oil paintings created with passion and precision. 
-              Each commission is a unique work of art, capturing essence and emotion.
-            </p>
-            <div className="flex gap-4 justify-center">
-              <button
-                onClick={() => setActiveSection('gallery')}
-                className="bg-amber-900 text-white px-8 py-3 rounded hover:bg-amber-800 transition"
-              >
-                View Portfolio
-              </button>
+        <div>
+          {/* Hero Section */}
+          <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 via-white to-orange-50 overflow-hidden pt-20 pb-16">
+            <div className="max-w-4xl mx-auto px-4 text-center">
+              <p className="text-amber-900 font-semibold mb-4 tracking-widest">CUSTOM PORTRAIT ARTIST</p>
+              <h1 className="text-7xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Capture Your Story
+              </h1>
+              <p className="text-xl text-gray-600 mb-4 leading-relaxed max-w-2xl mx-auto">
+                Every portrait is a window into the soul. Through 17 years of dedicated craftsmanship, I create timeless artworks that celebrate the moments, connections, and beauty that matter most to you.
+              </p>
+              <p className="text-gray-500 mb-8 max-w-2xl mx-auto italic">
+                "Art has the power to immortalize emotion and preserve precious moments in their most authentic form."
+              </p>
+              <div className="flex gap-4 justify-center mb-16">
+                <button
+                  onClick={() => setActiveSection('gallery')}
+                  className="bg-amber-900 text-white px-8 py-3 rounded hover:bg-amber-800 transition font-semibold"
+                >
+                  View Portfolio
+                </button>
+                <button
+                  onClick={() => setActiveSection('contact')}
+                  className="border-2 border-amber-900 text-amber-900 px-8 py-3 rounded hover:bg-amber-50 transition font-semibold"
+                >
+                  Commission Now
+                </button>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-8">
+                <div>
+                  <div className="text-4xl font-bold text-amber-900">30+</div>
+                  <p className="text-gray-600">Satisfied Clients</p>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold text-amber-900">17+</div>
+                  <p className="text-gray-600">Years Experience</p>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold text-amber-900">100%</div>
+                  <p className="text-gray-600">Custom Work</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Featured Works Section */}
+          <section className="py-20 bg-white">
+            <div className="max-w-6xl mx-auto px-4">
+              <div className="text-center mb-16">
+                <h2 className="text-5xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Featured Works
+                </h2>
+                <div className="w-24 h-1 bg-amber-900 mx-auto mb-4"></div>
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                  A glimpse into recent commissions that showcase the depth, emotion, and technical excellence of custom portraiture.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {featuredWorks.map(work => (
+                  <div
+                    key={work.id}
+                    onClick={() => setSelectedImage(artworks[work.id - 1])}
+                    className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300"
+                  >
+                    <div className="relative overflow-hidden bg-gray-100 h-80">
+                      <img
+                        src={work.image}
+                        alt={work.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                        <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity font-semibold">View</span>
+                      </div>
+                    </div>
+                    <div className="p-4 bg-white">
+                      <h3 className="font-bold text-lg mb-2">{work.title}</h3>
+                      <p className="text-amber-900 font-semibold">{work.price}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="text-center mt-12">
+                <button
+                  onClick={() => setActiveSection('gallery')}
+                  className="border-2 border-amber-900 text-amber-900 px-8 py-3 rounded hover:bg-amber-50 transition font-semibold"
+                >
+                  View All Works
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* Why Choose Asha Section */}
+          <section className="py-20 bg-amber-50">
+            <div className="max-w-6xl mx-auto px-4">
+              <div className="text-center mb-16">
+                <h2 className="text-5xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Why Choose Asha
+                </h2>
+                <div className="w-24 h-1 bg-amber-900 mx-auto"></div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {whyChoose.map((item, index) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <div key={index} className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
+                      <IconComponent className="w-16 h-16 text-amber-900 mx-auto mb-4" />
+                      <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                      <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+
+          {/* Testimonials Section */}
+          <section className="py-20 bg-white">
+            <div className="max-w-6xl mx-auto px-4">
+              <div className="text-center mb-16">
+                <h2 className="text-5xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Client Stories
+                </h2>
+                <div className="w-24 h-1 bg-amber-900 mx-auto"></div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {testimonials.map((testimonial, index) => (
+                  <div key={index} className="bg-amber-50 rounded-lg p-8 border-l-4 border-amber-900 hover:shadow-lg transition-shadow">
+                    <p className="text-gray-700 mb-4 italic leading-relaxed">"{testimonial.text}"</p>
+                    <div className="border-t border-amber-200 pt-4">
+                      <p className="font-semibold text-amber-900">{testimonial.name}</p>
+                      <p className="text-sm text-gray-600">{testimonial.role}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Process Section */}
+          <section className="py-20 bg-amber-50">
+            <div className="max-w-6xl mx-auto px-4">
+              <div className="text-center mb-16">
+                <h2 className="text-5xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  How It Works
+                </h2>
+                <div className="w-24 h-1 bg-amber-900 mx-auto"></div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
+                {processSteps.map((step, index) => (
+                  <div key={index} className="relative">
+                    <div className="bg-white rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition-shadow">
+                      <div className="w-12 h-12 bg-amber-900 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
+                        {step.number}
+                      </div>
+                      <h3 className="font-bold text-lg mb-2">{step.title}</h3>
+                      <p className="text-sm text-gray-600">{step.description}</p>
+                    </div>
+                    {index < processSteps.length - 1 && (
+                      <div className="hidden md:block absolute top-1/2 -right-2 w-4 h-0.5 bg-amber-900 transform -translate-y-1/2"></div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className="text-center mt-12">
+                <button
+                  onClick={() => setActiveSection('contact')}
+                  className="bg-amber-900 text-white px-12 py-4 rounded-lg font-semibold hover:bg-amber-800 transition text-lg"
+                >
+                  Start Your Commission
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* CTA Section */}
+          <section className="py-16 bg-gradient-to-r from-amber-900 to-orange-800 text-white">
+            <div className="max-w-4xl mx-auto px-4 text-center">
+              <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Ready to Commission Your Masterpiece?
+              </h2>
+              <p className="text-lg mb-8 opacity-90">
+                Let's create something extraordinary together. Get in touch today.
+              </p>
               <button
                 onClick={() => setActiveSection('contact')}
-                className="border-2 border-amber-900 text-amber-900 px-8 py-3 rounded hover:bg-amber-50 transition"
+                className="bg-white text-amber-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
               >
-                Commission Now
+                Get Started
               </button>
             </div>
-            <div className="mt-12 grid grid-cols-3 gap-8 text-left">
-              <div>
-                <div className="text-3xl font-bold text-amber-900">30+</div>
-                <p className="text-gray-600">Satisfied Clients</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-amber-900">17+</div>
-                <p className="text-gray-600">Years Experience</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-amber-900">100%</div>
-                <p className="text-gray-600">Custom Work</p>
-              </div>
-            </div>
-          </div>
-        </section>
+          </section>
+        </div>
       )}
 
       {/* About Section */}
       {activeSection === 'about' && (
         <section className="py-20 bg-gradient-to-b from-white via-amber-50 to-white">
           <div className="max-w-4xl mx-auto px-4">
-            {/* Artist Name Header */}
             <div className="text-center mb-16">
               <h1 className="text-7xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif", letterSpacing: '0.05em' }}>
                 Asha Jose
@@ -200,9 +414,7 @@ const ArtistPortfolio = () => {
               <div className="w-24 h-1 bg-amber-900 mx-auto"></div>
             </div>
 
-            {/* Artist Statement */}
             <div className="space-y-8">
-              {/* Opening Statement */}
               <div className="relative">
                 <div className="absolute -left-4 top-0 text-6xl text-amber-200 opacity-30" style={{ fontFamily: "'Playfair Display', serif" }}>
                   "
@@ -212,13 +424,11 @@ const ArtistPortfolio = () => {
                 </p>
               </div>
 
-              {/* Main Content */}
               <div className="bg-white rounded-lg shadow-lg p-12 border-l-4 border-amber-900">
                 <p className="text-lg text-gray-800 leading-relaxed mb-6">
                   Based in Brisbane, Queensland, I am a portrait artist with over 17 years of professional experience, working in graphite, coloured pencils, watercolour, and oil paint—my preferred medium.
                 </p>
 
-                {/* Highlighted Section */}
                 <div className="bg-amber-50 rounded-lg p-8 my-8 border border-amber-200">
                   <p className="text-lg text-amber-900 leading-relaxed font-medium">
                     I am passionate about capturing more than just a likeness. Every portrait is created to reflect personality, emotion, and the unique story behind the subject. My work combines traditional techniques with careful attention to detail, resulting in timeless artworks that celebrate meaningful moments and connections.
@@ -229,7 +439,6 @@ const ArtistPortfolio = () => {
                   Alongside my art practice, I work in higher education, an experience that continually inspires creativity and fresh perspectives.
                 </p>
 
-                {/* Three Pillars */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-8">
                   <div className="text-center">
                     <div className="text-4xl text-amber-900 mb-3">✦</div>
@@ -249,7 +458,6 @@ const ArtistPortfolio = () => {
                 </div>
               </div>
 
-              {/* Closing Section */}
               <div className="bg-gradient-to-r from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                 <p className="text-lg text-gray-800 leading-relaxed mb-4">
                   Completed artworks can be shipped locally, nationally, and internationally.
@@ -260,7 +468,6 @@ const ArtistPortfolio = () => {
                 </p>
               </div>
 
-              {/* Call to Action */}
               <div className="text-center mt-12">
                 <button
                   onClick={() => setActiveSection('contact')}
@@ -327,7 +534,6 @@ const ArtistPortfolio = () => {
             </p>
 
             <div className="grid md:grid-cols-2 gap-12">
-              {/* Contact Form */}
               <div className="bg-white p-8 rounded-lg shadow-lg">
                 <form onSubmit={handleSubmit}>
                   <div className="mb-6">
@@ -400,7 +606,6 @@ const ArtistPortfolio = () => {
                 </form>
               </div>
 
-              {/* Contact Info */}
               <div className="flex flex-col gap-8">
                 <div className="bg-white p-8 rounded-lg shadow-lg">
                   <h3 className="text-2xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -499,7 +704,6 @@ const ArtistPortfolio = () => {
             style={{ maxWidth: '85vw', maxHeight: '95vh' }}
             onClick={e => e.stopPropagation()}
           >
-            {/* Close Button */}
             <button
               onClick={() => setSelectedImage(null)}
               className="absolute top-3 right-3 bg-white rounded-full p-1.5 hover:bg-gray-100 transition z-10 shadow-md"
@@ -507,9 +711,7 @@ const ArtistPortfolio = () => {
               <X className="w-5 h-5" />
             </button>
 
-            {/* Main Container - Image + Details Side by Side on Desktop */}
             <div className="flex flex-col lg:flex-row h-full" style={{ maxHeight: '95vh' }}>
-              {/* Image Container */}
               <div 
                 className="flex items-center justify-center bg-gray-100"
                 style={{ flex: 1, minHeight: '300px' }}
@@ -527,7 +729,6 @@ const ArtistPortfolio = () => {
                 />
               </div>
 
-              {/* Details Container - Compact */}
               <div className="bg-white p-4 lg:p-5 border-t lg:border-t-0 lg:border-l border-gray-200" style={{ width: '100%', maxWidth: '280px', overflowY: 'auto' }}>
                 <h3 className="text-xl font-bold mb-1">{selectedImage.title}</h3>
                 <p className="text-sm text-gray-600 mb-0.5">{selectedImage.category}</p>
