@@ -21,14 +21,24 @@ const ArtistPortfolio = () => {
     emailjs.init('Pmhf_2RyBSjCYmGHY');
   }, []);
 
-  // Sample artwork data - replace with actual images
+  // Artwork data - All 16 pieces from GitHub
   const artworks = [
-    { id: 1, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: 'https://images.unsplash.com/photo-1579783902614-e3fb5141b0cb?w=500&h=500&fit=crop', price: '$150-300' },
-    { id: 2, title: 'Oil Landscape', category: 'Oil Painting', image: 'https://images.unsplash.com/photo-1561214115-6d2f1b0609fa?w=500&h=500&fit=crop', price: '$300-800' },
-    { id: 3, title: 'Woman\'s Portrait', category: 'Pencil Sketch', image: 'https://images.unsplash.com/photo-1578762996442-48f60103fc96?w=500&h=500&fit=crop', price: '$200-400' },
-    { id: 4, title: 'Sunset Over Water', category: 'Oil Painting', image: 'https://images.unsplash.com/photo-1549887534-1bcfc7da91c8?w=500&h=500&fit=crop', price: '$400-900' },
-    { id: 5, title: 'Detailed Study', category: 'Pencil Sketch', image: 'https://images.unsplash.com/photo-1565193566173-7cde29f6e9e9?w=500&h=500&fit=crop', price: '$250-450' },
-    { id: 6, title: 'Abstract Oil', category: 'Oil Painting', image: 'https://images.unsplash.com/photo-1578926078328-123aef308e7f?w=500&h=500&fit=crop', price: '$350-750' },
+    { id: 1, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (1).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 2, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (2).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 3, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (3).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 4, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (4).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 5, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (5).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 6, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (6).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 7, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (7).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 8, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (8).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 9, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (9).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 10, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (10).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 11, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (11).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 12, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (12).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 13, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (13).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 14, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (14).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 15, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (15).jpg', size: 'A4 Paper', price: '$150-200' },
+    { id: 16, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/Image (16).jpg', size: 'A4 Paper', price: '$150-200' },
   ];
 
   const faqData = [
@@ -275,14 +285,14 @@ const ArtistPortfolio = () => {
               Explore a selection of completed commissions. Each piece represents a unique vision brought to life.
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {artworks.map(artwork => (
                 <div
                   key={artwork.id}
                   onClick={() => setSelectedImage(artwork)}
                   className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300"
                 >
-                  <div className="relative overflow-hidden bg-gray-100 h-80">
+                  <div className="relative overflow-hidden bg-gray-100 h-64">
                     <img
                       src={artwork.image}
                       alt={artwork.title}
@@ -294,7 +304,8 @@ const ArtistPortfolio = () => {
                   </div>
                   <div className="p-4 bg-white">
                     <h3 className="font-bold text-lg">{artwork.title}</h3>
-                    <p className="text-sm text-gray-600 mb-2">{artwork.category}</p>
+                    <p className="text-sm text-gray-600 mb-1">{artwork.category}</p>
+                    <p className="text-xs text-gray-500 mb-2">{artwork.size}</p>
                     <p className="text-amber-900 font-semibold">{artwork.price}</p>
                   </div>
                 </div>
@@ -495,8 +506,9 @@ const ArtistPortfolio = () => {
             </div>
             <div className="p-6">
               <h3 className="text-2xl font-bold mb-2">{selectedImage.title}</h3>
-              <p className="text-gray-600 mb-2">{selectedImage.category}</p>
-              <p className="text-amber-900 font-semibold text-lg mb-4">{selectedImage.price}</p>
+              <p className="text-gray-600 mb-1">{selectedImage.category}</p>
+              <p className="text-sm text-gray-500 mb-4">Size: {selectedImage.size}</p>
+              <p className="text-amber-900 font-semibold text-lg mb-4">Price Range: {selectedImage.price}</p>
               <button
                 onClick={() => {
                   setSelectedImage(null);
