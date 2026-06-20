@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, ChevronDown, X, Sparkles, Heart, Eye } from 'lucide-react';
+import { Mail, Phone, MapPin, ChevronDown } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const ArtistPortfolio = () => {
@@ -33,26 +33,37 @@ const ArtistPortfolio = () => {
       name: 'Priya R.',
       location: 'Brisbane, QLD',
       subject: 'Wedding portrait — oil painting',
-      short: 'It doesn\'t feel like just a painting on a wall. It feels like a living memory.',
-      full: 'There\'s something really special about the way Asha approaches every project — not just as artwork, but as someone who truly understands the emotion behind it. She put so much care into a wedding portrait of my brother and sister-in-law, and it honestly felt like she treated those memories with the same love and respect we feel for them. That piece now hangs in their living room, and every time we visit, it naturally draws us in. We always end up smiling, remembering the day, and appreciating how beautifully it\'s been captured. Working with Asha feels personal in the best way, and the end result reflects that heart in every detail.'
+      short: "It doesn't feel like just a painting on a wall. It feels like a living memory.",
+      full: "There's something really special about the way Asha approaches every project — not just as artwork, but as someone who truly understands the emotion behind it. She put so much care into a wedding portrait of my brother and sister-in-law, and it honestly felt like she treated those memories with the same love and respect we feel for them. That piece now hangs in their living room, and every time we visit, it naturally draws us in. We always end up smiling, remembering the day, and appreciating how beautifully it's been captured. Working with Asha feels personal in the best way, and the end result reflects that heart in every detail.",
+      long: true
     },
     {
       name: 'Michael T.',
       location: 'Sydney, NSW',
       subject: 'Three oil painting commissions over the years',
-      short: 'If you\'re even considering commissioning her — don\'t overthink it. Just do it.',
-      full: 'Over the years I\'ve ordered three commissioned oil paintings from Asha for friends and family, and every single time the experience has been effortless. Once I hand over the idea, I never have to worry about a thing. She keeps me updated with progress shots throughout, so you always feel involved and reassured along the way. She\'s incredibly approachable and genuinely kind, and her work speaks for itself. I\'ve always been amazed by the depth, softness, and detail she brings to every piece — it feels almost impossible how she achieves that balance. At this point, if I ever think of a meaningful moment I want captured, I already know exactly who to go to.'
+      short: "If you're even considering commissioning her — don't overthink it. Just do it.",
+      full: "Over the years I've ordered three commissioned oil paintings from Asha for friends and family, and every single time the experience has been effortless. Once I hand over the idea, I never have to worry about a thing. She keeps me updated with progress shots throughout, so you always feel involved and reassured along the way. She's incredibly approachable and genuinely kind, and her work speaks for itself. I've always been amazed by the depth, softness, and detail she brings to every piece — it feels almost impossible how she achieves that balance. At this point, if I ever think of a meaningful moment I want captured, I already know exactly who to go to.",
+      long: true
     },
     {
-      name: 'The Henderson Family',
-      location: 'Auckland, New Zealand',
-      subject: 'Pet memorial portrait — shipped internationally',
-      short: 'You can really tell it wasn\'t just about the artwork, but about the full experience.',
-      full: 'We ordered a portrait of our dog, who has crossed the rainbow bridge, all the way from New Zealand — and Asha did such a beautiful job capturing him so perfectly. From start to finish, the whole process felt seamless, and the shipping was handled with real care and professionalism. It arrived incredibly well packaged, and even the presentation showed how much thought she puts into every detail. We\'re so happy with the final piece and would highly recommend her to anyone looking for something truly special.'
+      name: 'Sandra K.',
+      location: 'Melbourne, VIC',
+      subject: 'Portrait commission',
+      short: "Professional, talented, and passionate. Worth every penny!",
+      full: "Professional, talented, and passionate. Worth every penny!",
+      long: false
     }
   ];
 
   const moreReviews = [
+    {
+      name: 'The Henderson Family',
+      location: 'Auckland, New Zealand',
+      subject: 'Pet memorial portrait — shipped internationally',
+      short: "You can really tell it wasn't just about the artwork, but about the full experience.",
+      full: "We ordered a portrait of our dog, who has crossed the rainbow bridge, all the way from New Zealand — and Asha did such a beautiful job capturing him so perfectly. From start to finish, the whole process felt seamless, and the shipping was handled with real care and professionalism. It arrived incredibly well packaged, and even the presentation showed how much thought she puts into every detail. We're so happy with the final piece and would highly recommend her to anyone looking for something truly special.",
+      long: true
+    },
     { name: 'Sandra K.', location: 'Melbourne, VIC', text: 'Professional, talented, and passionate. Worth every penny!' },
     { name: 'David L.', location: 'Perth, WA', text: 'Amazed at how lifelike and expressive the portrait is. A true artist.' },
     { name: 'The Nguyen Family', location: 'Brisbane, QLD', text: 'Asha captured the essence of our family beautifully. Highly recommended!' }
@@ -60,31 +71,9 @@ const ArtistPortfolio = () => {
 
 
 
-  const whyChoose = [
-    {
-      icon: Eye,
-      title: 'Exceptional Detail',
-      description: 'Every stroke captures the soul of your subject.'
-    },
-    {
-      icon: Heart,
-      title: 'Personalized Approach',
-      description: 'Each commission tailored to your unique vision.'
-    },
-    {
-      icon: Sparkles,
-      title: 'Timeless Quality',
-      description: '17+ years creating artworks that endure.'
-    }
-  ];
 
-  const processSteps = [
-    { number: '1', title: 'Consult', description: 'Share your vision' },
-    { number: '2', title: 'Quote', description: 'Get pricing & timeline' },
-    { number: '3', title: 'Create', description: '50% deposit' },
-    { number: '4', title: 'Updates', description: 'Progress check-ins' },
-    { number: '5', title: 'Deliver', description: 'Final payment' }
-  ];
+
+
 
   const artworks = [
     { id: 1, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (1).png', size: 'A4 Paper', price: '$150-200' },
@@ -233,157 +222,212 @@ const ArtistPortfolio = () => {
         </div>
       </nav>
 
-      {/* Home Section - COMPACT */}
+      {/* Home Section */}
       {activeSection === 'home' && (
         <div>
-          {/* Hero Section */}
-          <section className="py-12 bg-gradient-to-br from-amber-50 via-white to-orange-50">
-            <div className="max-w-4xl mx-auto px-4 text-center">
-              <p className="text-amber-900 font-semibold mb-2 tracking-widest text-sm">CUSTOM PORTRAIT ARTIST</p>
-              <h1 className="text-6xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Capture Your Story
+
+          {/* ── HERO ── */}
+          <section style={{ background: 'linear-gradient(135deg, #fdf6ec 0%, #fff8f0 50%, #fdf0e0 100%)' }} className="relative overflow-hidden">
+            <div className="max-w-5xl mx-auto px-6 py-20 md:py-28 text-center relative z-10">
+              {/* Eyebrow */}
+              <p className="text-amber-800 font-semibold tracking-widest text-xs uppercase mb-5 flex items-center justify-center gap-3">
+                <span className="block w-8 h-px bg-amber-800"></span>
+                Brisbane · Australia · Worldwide Shipping
+                <span className="block w-8 h-px bg-amber-800"></span>
+              </p>
+              {/* Headline */}
+              <h1 style={{ fontFamily: "'Playfair Display', serif", lineHeight: 1.1 }}
+                  className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+                Some moments deserve<br/>
+                <em className="text-amber-900">to last forever.</em>
               </h1>
-              <p className="text-lg text-gray-600 mb-3 leading-relaxed max-w-2xl mx-auto">
-                Every portrait is a window into the soul. Through 17 years of dedicated craftsmanship, I create timeless artworks that celebrate moments that matter.
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
+                I'm Asha — a portrait artist with 17 years of experience turning photographs into hand-crafted artworks in graphite, watercolour, and oil paint. Every commission is made with care, patience, and genuine love for the craft.
               </p>
-              <p className="text-gray-500 mb-6 max-w-2xl mx-auto italic text-sm">
-                "Art immortalizes emotion and preserves precious moments in their most authentic form."
-              </p>
-              <div className="flex gap-3 justify-center mb-10">
-                <button
-                  onClick={() => setActiveSection('gallery')}
-                  className="bg-amber-900 text-white px-6 py-2 rounded hover:bg-amber-800 transition font-semibold text-sm"
-                >
-                  View Portfolio
-                </button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
                 <button
                   onClick={() => setActiveSection('contact')}
-                  className="border-2 border-amber-900 text-amber-900 px-6 py-2 rounded hover:bg-amber-50 transition font-semibold text-sm"
+                  className="bg-amber-900 text-white px-9 py-3.5 rounded-full hover:bg-amber-800 transition font-semibold text-base shadow-lg hover:shadow-xl"
                 >
-                  Commission Now
+                  Commission a Portrait
+                </button>
+                <button
+                  onClick={() => setActiveSection('gallery')}
+                  className="border-2 border-amber-900 text-amber-900 px-9 py-3.5 rounded-full hover:bg-amber-50 transition font-semibold text-base"
+                >
+                  View My Work
                 </button>
               </div>
-
-              {/* Stats - Compact */}
-              <div className="grid grid-cols-3 gap-6">
-                <div>
-                  <div className="text-3xl font-bold text-amber-900">30+</div>
-                  <p className="text-sm text-gray-600">Satisfied Clients</p>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-amber-900">17+</div>
-                  <p className="text-sm text-gray-600">Years Experience</p>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-amber-900">100%</div>
-                  <p className="text-sm text-gray-600">Custom Work</p>
-                </div>
+              {/* Stats row */}
+              <div className="flex flex-wrap justify-center gap-10 md:gap-16">
+                {[
+                  { n: '17+', label: 'Years of practice' },
+                  { n: '4', label: 'Mediums' },
+                  { n: '100%', label: 'Custom & handmade' },
+                  { n: '🌏', label: 'Ships worldwide' }
+                ].map(s => (
+                  <div key={s.label} className="text-center">
+                    <p className="text-3xl md:text-4xl font-bold text-amber-900 mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>{s.n}</p>
+                    <p className="text-gray-500 text-xs uppercase tracking-wider">{s.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
+            {/* decorative corner flourishes */}
+            <div className="absolute top-8 left-8 w-20 h-20 border-t-2 border-l-2 border-amber-300 opacity-40 rounded-tl-lg"></div>
+            <div className="absolute bottom-8 right-8 w-20 h-20 border-b-2 border-r-2 border-amber-300 opacity-40 rounded-br-lg"></div>
           </section>
 
-          {/* Featured Works Section */}
-          <section className="py-10 bg-white">
+          {/* ── FEATURED WORKS ── */}
+          <section className="py-16 bg-white">
             <div className="max-w-6xl mx-auto px-4">
-              <div className="text-center mb-8">
-                <h2 className="text-4xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Featured Works
+              <div className="text-center mb-12">
+                <p className="text-amber-900 text-xs font-semibold tracking-widest uppercase mb-3">Portfolio</p>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Recent commissions
                 </h2>
-                <div className="w-16 h-0.5 bg-amber-900 mx-auto mb-3"></div>
-                <p className="text-gray-600 max-w-2xl mx-auto text-sm">
-                  A glimpse into recent commissions showcasing detail and emotional depth.
+                <p className="text-gray-500 max-w-xl mx-auto text-base">
+                  Each piece is unique — made from a photograph you provide, finished by hand, and built to be treasured.
                 </p>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {featuredWorks.map(work => (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                {featuredWorks.map((work, i) => (
                   <div
                     key={work.id}
                     onClick={() => setSelectedImage(artworks[work.id - 1])}
-                    className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all"
+                    className="group cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
                   >
-                    <div className="relative overflow-hidden bg-gray-100 h-48">
+                    <div className="relative overflow-hidden bg-gray-100" style={{ paddingBottom: '120%' }}>
                       <img
                         src={work.image}
                         alt={work.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all flex items-center justify-center">
-                        <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-sm font-semibold">View</span>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span className="text-white text-sm font-semibold">View</span>
                       </div>
                     </div>
                     <div className="p-3 bg-white">
-                      <h3 className="font-bold text-base mb-1">{work.title}</h3>
-                      <p className="text-amber-900 font-semibold text-sm">{work.price}</p>
+                      <h3 className="font-semibold text-sm text-gray-800">{work.title}</h3>
                     </div>
                   </div>
                 ))}
               </div>
-
-              <div className="text-center mt-8">
+              <div className="text-center">
                 <button
                   onClick={() => setActiveSection('gallery')}
-                  className="border-2 border-amber-900 text-amber-900 px-6 py-2 rounded hover:bg-amber-50 transition font-semibold text-sm"
+                  className="border-2 border-amber-900 text-amber-900 px-8 py-3 rounded-full hover:bg-amber-50 transition font-semibold text-sm"
                 >
-                  View All Works
+                  See full gallery →
                 </button>
               </div>
             </div>
           </section>
 
-          {/* Why Choose Asha Section */}
-          <section className="py-10 bg-amber-50">
-            <div className="max-w-6xl mx-auto px-4">
-              <div className="text-center mb-8">
-                <h2 className="text-4xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Why Choose Asha
+          {/* ── WHY CHOOSE ME ── */}
+          <section style={{ background: 'linear-gradient(180deg, #fdf6ec 0%, #fff8f2 100%)' }} className="py-16 px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <p className="text-amber-900 text-xs font-semibold tracking-widest uppercase mb-3">The difference</p>
+                <h2 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Why choose me
                 </h2>
-                <div className="w-16 h-0.5 bg-amber-900 mx-auto"></div>
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {whyChoose.map((item, index) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <div key={index} className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow text-center">
-                      <IconComponent className="w-12 h-12 text-amber-900 mx-auto mb-3" />
-                      <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+                {[
+                  {
+                    icon: '✦',
+                    title: 'Soul over likeness',
+                    body: 'Anyone can copy a photo. I look for the personality, warmth, and story behind every face — and make sure it shows in the finished piece.'
+                  },
+                  {
+                    icon: '✦',
+                    title: 'You're involved throughout',
+                    body: 'I send progress updates as I work, so you're never left wondering. If something doesn't feel right, we fix it before it's finished.'
+                  },
+                  {
+                    icon: '✦',
+                    title: 'Built to last generations',
+                    body: '17+ years of practice across four mediums means I know which materials and techniques create artwork that won't fade — physically or emotionally.'
+                  }
+                ].map((item, i) => (
+                  <div key={i} className="bg-white rounded-2xl p-8 shadow-sm border border-amber-100 hover:shadow-lg transition-shadow">
+                    <div className="w-12 h-12 bg-amber-900 rounded-full flex items-center justify-center mb-5">
+                      <span className="text-white text-lg">{item.icon}</span>
                     </div>
-                  );
-                })}
+                    <h3 className="font-bold text-lg mb-3 text-gray-900">{item.title}</h3>
+                    <p className="text-gray-600 text-base leading-relaxed">{item.body}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
 
-          {/* Testimonials Section */}
-          <section className="py-14 bg-white">
-            <div className="max-w-5xl mx-auto px-4">
+          {/* ── MEDIUMS STRIP ── */}
+          <section className="bg-amber-900 text-white py-10 px-4">
+            <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-6 md:gap-12 text-center">
+              {[
+                { medium: 'Graphite', note: 'Timeless detail' },
+                { medium: 'Coloured Pencil', note: 'Vibrant realism' },
+                { medium: 'Watercolour', note: 'Soft & luminous' },
+                { medium: 'Oil Paint', note: 'Rich & enduring' }
+              ].map(m => (
+                <div key={m.medium}>
+                  <p className="font-bold text-base mb-0.5">{m.medium}</p>
+                  <p className="text-amber-300 text-xs">{m.note}</p>
+                </div>
+              ))}
+            </div>
+          </section>
 
-              <div className="text-center mb-10">
-                <h2 className="text-4xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+          {/* ── CLIENT STORIES ── */}
+          <section className="py-16 bg-white px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <p className="text-amber-900 text-xs font-semibold tracking-widest uppercase mb-3">Testimonials</p>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
                   What clients say
                 </h2>
-                <p className="text-gray-500 text-base max-w-xl mx-auto">Real stories from people who trusted Asha with their most meaningful moments.</p>
+                <p className="text-gray-500 text-base max-w-xl mx-auto">Real words from real people who trusted me with their most meaningful moments.</p>
               </div>
 
-              {/* 3 featured reviews */}
-              <div className="space-y-6 mb-10">
+              {/* 2 long + 1 short */}
+              <div className="space-y-5 mb-8">
                 {featuredReviews.map((review, index) => (
-                  <div key={index} className="bg-amber-50 rounded-2xl p-7 border border-amber-100 hover:shadow-md transition-shadow">
-                    <div className="flex items-start gap-4">
-                      {/* Big quote mark */}
-                      <span className="text-5xl text-amber-300 font-serif leading-none flex-shrink-0 mt-1">"</span>
+                  review.long ? (
+                    <div key={index} className="rounded-2xl border border-amber-100 bg-amber-50 p-7 hover:shadow-md transition-shadow">
+                      <div className="flex items-start gap-4">
+                        <span className="text-6xl text-amber-200 font-serif leading-none flex-shrink-0" style={{ fontFamily: "'Playfair Display', serif" }}>"</span>
+                        <div className="flex-1">
+                          <p className="text-gray-900 text-base font-medium italic leading-relaxed mb-3">{review.short}</p>
+                          <p className="text-gray-600 text-sm leading-relaxed">{review.full.replace(review.short, '').trim()}</p>
+                          <div className="mt-5 pt-4 border-t border-amber-200 flex flex-wrap items-center gap-3">
+                            <div className="w-9 h-9 rounded-full bg-amber-900 flex items-center justify-center flex-shrink-0">
+                              <span className="text-white text-sm font-bold">{review.name[0]}</span>
+                            </div>
+                            <div>
+                              <p className="font-semibold text-amber-900 text-sm">{review.name}</p>
+                              <p className="text-xs text-gray-400">{review.location} · {review.subject}</p>
+                            </div>
+                            <div className="ml-auto flex gap-0.5">
+                              {[1,2,3,4,5].map(s => <span key={s} className="text-amber-400">★</span>)}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div key={index} className="rounded-2xl border border-amber-100 bg-white p-6 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
+                      <span className="text-4xl text-amber-200 font-serif leading-none flex-shrink-0" style={{ fontFamily: "'Playfair Display', serif" }}>"</span>
                       <div className="flex-1">
-                        <p className="text-gray-800 text-base leading-relaxed italic mb-4">{review.short}</p>
-                        <p className="text-gray-600 text-sm leading-relaxed">{review.full.replace(review.short, '').trim()}</p>
-                        <div className="mt-5 pt-4 border-t border-amber-200 flex flex-wrap items-center gap-3">
+                        <p className="text-gray-800 text-base italic leading-relaxed mb-4">{review.short}</p>
+                        <div className="flex flex-wrap items-center gap-3">
                           <div className="w-8 h-8 rounded-full bg-amber-900 flex items-center justify-center flex-shrink-0">
-                            <span className="text-white text-sm font-bold">{review.name[0]}</span>
+                            <span className="text-white text-xs font-bold">{review.name[0]}</span>
                           </div>
                           <div>
                             <p className="font-semibold text-amber-900 text-sm">{review.name}</p>
-                            <p className="text-xs text-gray-500">{review.location} &middot; {review.subject}</p>
+                            <p className="text-xs text-gray-400">{review.location} · {review.subject}</p>
                           </div>
                           <div className="ml-auto flex gap-0.5">
                             {[1,2,3,4,5].map(s => <span key={s} className="text-amber-400 text-sm">★</span>)}
@@ -391,11 +435,10 @@ const ArtistPortfolio = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  )
                 ))}
               </div>
 
-              {/* See more button */}
               <div className="text-center">
                 <button
                   onClick={() => setShowAllReviews(true)}
@@ -414,27 +457,31 @@ const ArtistPortfolio = () => {
               onClick={() => setShowAllReviews(false)}
             >
               <div
-                className="bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl"
+                className="bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl max-h-screen overflow-y-auto"
                 onClick={e => e.stopPropagation()}
               >
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>More kind words</h3>
-                  <button
-                    onClick={() => setShowAllReviews(false)}
-                    className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
-                  >×</button>
+                  <button onClick={() => setShowAllReviews(false)} className="text-gray-400 hover:text-gray-600 text-3xl leading-none">×</button>
                 </div>
                 <div className="space-y-5">
                   {moreReviews.map((r, i) => (
                     <div key={i} className="bg-amber-50 rounded-xl p-5 border border-amber-100">
-                      <p className="text-gray-700 text-sm italic leading-relaxed mb-3">"{r.text}"</p>
-                      <div className="flex items-center gap-2">
+                      {r.long ? (
+                        <>
+                          <p className="text-gray-800 text-sm italic font-medium leading-relaxed mb-2">"{r.short}"</p>
+                          <p className="text-gray-600 text-sm leading-relaxed mb-3">{r.full.replace(r.short, '').trim()}</p>
+                        </>
+                      ) : (
+                        <p className="text-gray-700 text-sm italic leading-relaxed mb-3">"{r.text}"</p>
+                      )}
+                      <div className="flex items-center gap-2 pt-3 border-t border-amber-200">
                         <div className="w-7 h-7 rounded-full bg-amber-900 flex items-center justify-center">
                           <span className="text-white text-xs font-bold">{r.name[0]}</span>
                         </div>
                         <div>
                           <p className="text-sm font-semibold text-amber-900">{r.name}</p>
-                          <p className="text-xs text-gray-500">{r.location}</p>
+                          <p className="text-xs text-gray-400">{r.location}{r.subject ? ' · ' + r.subject : ''}</p>
                         </div>
                         <div className="ml-auto flex gap-0.5">
                           {[1,2,3,4,5].map(s => <span key={s} className="text-amber-400 text-xs">★</span>)}
@@ -453,58 +500,75 @@ const ArtistPortfolio = () => {
             </div>
           )}
 
-          {/* Process Section */}
-          <section className="py-10 bg-amber-50">
-            <div className="max-w-6xl mx-auto px-4">
-              <div className="text-center mb-8">
-                <h2 className="text-4xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  How It Works
+          {/* ── HOW IT WORKS ── */}
+          <section style={{ background: 'linear-gradient(180deg, #fdf6ec 0%, #fff8f2 100%)' }} className="py-16 px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <p className="text-amber-900 text-xs font-semibold tracking-widest uppercase mb-3">The process</p>
+                <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  How it works
                 </h2>
-                <div className="w-16 h-0.5 bg-amber-900 mx-auto"></div>
+                <p className="text-gray-500 text-base max-w-lg mx-auto">Simple, personal, and completely guided by you.</p>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-3 mb-8">
-                {processSteps.map((step, index) => (
-                  <div key={index} className="relative">
-                    <div className="bg-white rounded-lg p-5 text-center shadow-lg hover:shadow-xl transition-shadow">
-                      <div className="w-10 h-10 bg-amber-900 text-white rounded-full flex items-center justify-center font-bold text-base mx-auto mb-3">
-                        {step.number}
+              <div className="relative">
+                {/* connector line — desktop only */}
+                <div className="hidden md:block absolute top-7 left-0 right-0 h-px bg-amber-200 z-0" style={{ margin: '0 60px' }}></div>
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-6 relative z-10">
+                  {[
+                    { n: '1', title: 'Get in touch', body: 'Share your idea and any reference photos' },
+                    { n: '2', title: 'Get a quote', body: 'Personalised pricing and timeline' },
+                    { n: '3', title: 'Secure your spot', body: '50% deposit starts the commission' },
+                    { n: '4', title: 'Watch it grow', body: 'Progress updates along the way' },
+                    { n: '5', title: 'Yours forever', body: 'Balance due on completion, then delivered' }
+                  ].map((step, i) => (
+                    <div key={i} className="flex flex-col items-center text-center">
+                      <div className="w-14 h-14 rounded-full bg-amber-900 text-white flex items-center justify-center font-bold text-lg mb-4 shadow-md">
+                        {step.n}
                       </div>
-                      <h3 className="font-bold text-sm mb-1">{step.title}</h3>
-                      <p className="text-xs text-gray-600">{step.description}</p>
+                      <h3 className="font-bold text-sm text-gray-900 mb-1">{step.title}</h3>
+                      <p className="text-gray-500 text-xs leading-relaxed">{step.body}</p>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-
-              <div className="text-center">
+              <div className="text-center mt-12">
                 <button
                   onClick={() => setActiveSection('contact')}
-                  className="bg-amber-900 text-white px-8 py-2 rounded-lg font-semibold hover:bg-amber-800 transition text-sm"
+                  className="bg-amber-900 text-white px-10 py-3.5 rounded-full font-semibold hover:bg-amber-800 transition text-base shadow-md"
                 >
-                  Start Your Commission
+                  Start your commission
                 </button>
               </div>
             </div>
           </section>
 
-          {/* CTA Section */}
-          <section className="py-8 bg-gradient-to-r from-amber-900 to-orange-800 text-white">
-            <div className="max-w-4xl mx-auto px-4 text-center">
-              <h2 className="text-3xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Ready to Commission?
+          {/* ── CLOSING CTA BANNER ── */}
+          <section className="py-20 px-4 bg-white text-center">
+            <div className="max-w-2xl mx-auto">
+              <p className="text-amber-900 text-xs font-semibold tracking-widest uppercase mb-4">Ready when you are</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-5" style={{ fontFamily: "'Playfair Display', serif", lineHeight: 1.2 }}>
+                Let's turn your favourite photo<br/>into something extraordinary.
               </h2>
-              <p className="text-base mb-6 opacity-90">
-                Let's create something extraordinary together.
+              <p className="text-gray-500 text-base mb-8 leading-relaxed">
+                Ships locally, across Australia, and worldwide. No obligation to enquire.
               </p>
-              <button
-                onClick={() => setActiveSection('contact')}
-                className="bg-white text-amber-900 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition text-sm"
-              >
-                Get Started
-              </button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => setActiveSection('contact')}
+                  className="bg-amber-900 text-white px-10 py-3.5 rounded-full font-semibold hover:bg-amber-800 transition text-base shadow-lg"
+                >
+                  Commission a Portrait
+                </button>
+                <button
+                  onClick={() => setActiveSection('about')}
+                  className="border-2 border-amber-900 text-amber-900 px-10 py-3.5 rounded-full font-semibold hover:bg-amber-50 transition text-base"
+                >
+                  Meet Asha
+                </button>
+              </div>
             </div>
           </section>
+
         </div>
       )}
 
@@ -998,7 +1062,7 @@ const ArtistPortfolio = () => {
       <footer className="bg-gray-900 text-white py-6">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="mb-1 text-sm" style={{ fontFamily: "'Playfair Display', serif" }}>
-            AshaArtSHED
+            Asha Art Shed
           </p>
           <p className="text-gray-400 text-xs">
             © 2024 All rights reserved. Custom commissions available worldwide.
