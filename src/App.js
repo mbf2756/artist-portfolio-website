@@ -200,7 +200,7 @@ const ArtistPortfolio = () => {
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <button onClick={() => setActiveSection('home')} className="focus:outline-none">
             <img 
-              src="/LOGO__2_.png" 
+              src="/logo-asha.png" 
               alt="Asha Ann Jose — Portrait Artist" 
               className="object-contain cursor-pointer"
               style={{ height: '80px', maxWidth: '260px' }}
