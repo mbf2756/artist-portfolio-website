@@ -197,21 +197,21 @@ const ArtistPortfolio = () => {
     <div className="min-h-screen bg-white text-gray-900" style={{ fontFamily: "'Lora', serif" }}>
       {/* Navigation */}
       <nav className="sticky top-0 bg-white border-b border-gray-200 z-40">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <button onClick={() => setActiveSection('home')} className="focus:outline-none">
+        <div className="max-w-6xl mx-auto px-4 flex items-center justify-between" style={{ minHeight: '80px' }}>
+          <button onClick={() => setActiveSection('home')} className="focus:outline-none flex-shrink-0" style={{ margin: '-18px 0' }}>
             <img 
               src="/logo-asha.png" 
               alt="Asha Ann Jose — Portrait Artist" 
               className="object-contain cursor-pointer"
-              style={{ height: '80px', maxWidth: '260px' }}
+              style={{ height: '130px', maxWidth: '340px' }}
             />
           </button>
-          <div className="flex gap-6 text-sm">
+          <div className="flex gap-8 text-base font-medium">
             {['home', 'about', 'gallery', 'contact', 'faq'].map(section => (
               <button
                 key={section}
                 onClick={() => setActiveSection(section)}
-                className={`capitalize transition-colors ${
+                className={`capitalize transition-colors tracking-wide ${
                   activeSection === section
                     ? 'text-amber-900 border-b-2 border-amber-900'
                     : 'text-gray-600 hover:text-gray-900'
