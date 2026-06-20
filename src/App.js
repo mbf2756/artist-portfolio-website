@@ -431,7 +431,7 @@ const ArtistPortfolio = () => {
               <div className="flex-shrink-0">
                 <div className="w-52 h-52 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-amber-900 shadow-2xl">
                   <img
-                    src="/images/about-headshot.jpg"
+                    src="/images/about-headshot.jpg.jpg"
                     alt="Asha Jose — Portrait Artist"
                     className="w-full h-full object-cover object-top"
                   />
@@ -473,7 +473,7 @@ const ArtistPortfolio = () => {
               {/* Artist with large painting */}
               <div className="relative">
                 <img
-                  src="/images/about-with-painting.jpg"
+                  src="/images/about-with-painting.jpg.jpeg"
                   alt="Asha Jose with her oil painting"
                   className="w-full rounded-2xl shadow-xl object-cover"
                   style={{ maxHeight: '480px', objectPosition: 'center top' }}
@@ -518,7 +518,7 @@ const ArtistPortfolio = () => {
               {/* Photo of Asha holding portrait — reveals joy */}
               <div className="relative order-2 md:order-1">
                 <img
-                  src="/images/about-reveal.jpg"
+                  src="/images/about-reveal.jpg.jpeg"
                   alt="Asha revealing a completed portrait commission"
                   className="w-full rounded-2xl shadow-xl object-cover"
                   style={{ maxHeight: '480px', objectFit: 'cover', objectPosition: 'center' }}
