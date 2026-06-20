@@ -781,132 +781,154 @@ const ArtistPortfolio = () => {
 
       {/* Contact Section */}
       {activeSection === 'contact' && (
-        <section className="py-12 bg-amber-50">
-          <div className="max-w-4xl mx-auto px-4">
-            <h2 className="text-4xl font-bold mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Get in Touch
-            </h2>
-            <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto text-sm">
-              Interested in commissioning a custom piece? Let's discuss your vision.
-            </p>
+        <section className="bg-white">
 
-            <div className="grid md:grid-cols-2 gap-10">
-              <div className="bg-white p-8 rounded-lg shadow-lg">
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-5">
-                    <label className="block text-sm font-semibold mb-2">Name</label>
+          {/* Header */}
+          <div style={{ background: 'linear-gradient(135deg, #fdf6ec 0%, #fff8f0 100%)' }} className="py-14 px-4 text-center">
+            <p className="text-amber-900 text-xs font-semibold tracking-widest uppercase mb-3">Get in touch</p>
+            <h2 className="text-5xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Let's bring your vision to life
+            </h2>
+            <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed">
+              Tell me about the portrait you have in mind — who it's for, the occasion, and any ideas you have. I'll come back to you with a personalised quote within 48 hours.
+            </p>
+          </div>
+
+          {/* Form — full width, generous */}
+          <div className="max-w-3xl mx-auto px-4 py-14">
+            <div className="bg-white rounded-3xl shadow-xl border border-amber-100 p-8 md:p-12">
+              <h3 className="text-2xl font-bold mb-8 text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Commission enquiry
+              </h3>
+              <form onSubmit={handleSubmit}>
+                {/* Name + Email side by side on desktop */}
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Your name <span className="text-amber-900">*</span></label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-amber-900 text-sm"
-                      placeholder="Your name"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-amber-900 focus:ring-1 focus:ring-amber-900 text-base transition"
+                      placeholder="e.g. Sarah Mitchell"
                     />
                   </div>
-                  <div className="mb-5">
-                    <label className="block text-sm font-semibold mb-2">Email</label>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Email address <span className="text-amber-900">*</span></label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-amber-900 text-sm"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-amber-900 focus:ring-1 focus:ring-amber-900 text-base transition"
                       placeholder="your@email.com"
                     />
                   </div>
-                  <div className="mb-5">
-                    <label className="block text-sm font-semibold mb-2">Phone (Optional)</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-amber-900 text-sm"
-                      placeholder="+61 (0) XX XXXX XXXX"
-                    />
+                </div>
+
+                {/* Phone */}
+                <div className="mb-6">
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Phone <span className="text-gray-400 font-normal">(optional)</span></label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-amber-900 focus:ring-1 focus:ring-amber-900 text-base transition"
+                    placeholder="+61 4XX XXX XXX"
+                  />
+                </div>
+
+                {/* Message — tall */}
+                <div className="mb-8">
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Tell me about your commission <span className="text-amber-900">*</span></label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows="7"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-amber-900 focus:ring-1 focus:ring-amber-900 text-base transition resize-none"
+                    placeholder="Who or what is the subject? Is it a gift or for yourself? Do you have a size or medium in mind? Any special occasion or deadline? The more detail the better — there are no wrong answers!"
+                  ></textarea>
+                  <p className="text-xs text-gray-400 mt-2">Not sure what to say? Just describe the moment or person you want captured — I'll guide you through the rest.</p>
+                </div>
+
+                {formError && (
+                  <p className="mb-5 text-red-600 text-sm font-semibold bg-red-50 px-4 py-3 rounded-lg">
+                    {formError}
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-amber-900 text-white py-4 rounded-full font-semibold hover:bg-amber-800 transition disabled:opacity-50 text-base shadow-md hover:shadow-lg"
+                >
+                  {isSubmitting ? 'Sending your enquiry...' : 'Send Enquiry'}
+                </button>
+
+                {formSubmitted && (
+                  <div className="mt-6 bg-green-50 border border-green-200 rounded-xl px-5 py-4 text-center">
+                    <p className="text-green-700 font-semibold text-base">✓ Thank you! I'll be in touch within 48 hours.</p>
                   </div>
-                  <div className="mb-5">
-                    <label className="block text-sm font-semibold mb-2">Message</label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows="4"
-                      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-amber-900 text-sm"
-                      placeholder="Tell me about your commission idea..."
-                    ></textarea>
-                  </div>
-                  
-                  {formError && (
-                    <p className="mb-4 text-red-600 text-sm font-semibold">
-                      {formError}
-                    </p>
-                  )}
-                  
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-amber-900 text-white py-2 rounded font-semibold hover:bg-amber-800 transition disabled:opacity-50 text-sm"
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Inquiry'}
-                  </button>
-                  
-                  {formSubmitted && (
-                    <p className="mt-4 text-green-600 text-center font-semibold text-sm">
-                      ✓ Thank you! Your inquiry has been sent.
-                    </p>
-                  )}
-                </form>
+                )}
+              </form>
+            </div>
+          </div>
+
+          {/* Info strip — 3 columns */}
+          <div style={{ background: 'linear-gradient(135deg, #fdf6ec 0%, #fff8f0 100%)' }} className="py-12 px-4">
+            <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-amber-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Mail className="w-5 h-5 text-white" />
+                </div>
+                <p className="font-semibold text-gray-900 mb-1">Email</p>
+                <p className="text-gray-500 text-sm">ashanujose@gmail.com</p>
               </div>
-
-              <div className="flex flex-col gap-6">
-                <div className="bg-white p-8 rounded-lg shadow-lg">
-                  <h3 className="text-xl font-bold mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Contact Info
-                  </h3>
-                  <div className="space-y-3">
-                    <div className="flex gap-3">
-                      <Mail className="w-5 h-5 text-amber-900 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-semibold text-sm">Email</p>
-                        <p className="text-gray-600 text-sm">ashanujose@gmail.com</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3">
-                      <Phone className="w-5 h-5 text-amber-900 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-semibold text-sm">Phone</p>
-                        <p className="text-gray-600 text-sm">+61 (0) XX XXXX XXXX</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3">
-                      <MapPin className="w-5 h-5 text-amber-900 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-semibold text-sm">Location</p>
-                        <p className="text-gray-600 text-sm">Brisbane, Queensland</p>
-                      </div>
-                    </div>
-                  </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-amber-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="w-5 h-5 text-white" />
                 </div>
-
-                <div className="bg-amber-100 p-6 rounded-lg border-2 border-amber-900">
-                  <h4 className="font-bold text-amber-900 mb-3 text-sm">Commission Process</h4>
-                  <ol className="text-xs text-gray-700 space-y-1.5 list-decimal list-inside">
-                    <li>Send your inquiry with reference images</li>
-                    <li>Receive a custom quote and timeline</li>
-                    <li>Pay 50% deposit to secure your spot</li>
-                    <li>Art creation begins</li>
-                    <li>Progress updates shared</li>
-                    <li>Final payment & delivery</li>
-                  </ol>
+                <p className="font-semibold text-gray-900 mb-1">Based in</p>
+                <p className="text-gray-500 text-sm">Brisbane, Queensland</p>
+                <p className="text-gray-400 text-xs mt-1">Ships locally & worldwide</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-amber-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Phone className="w-5 h-5 text-white" />
                 </div>
+                <p className="font-semibold text-gray-900 mb-1">Response time</p>
+                <p className="text-gray-500 text-sm">Within 48 hours</p>
+                <p className="text-gray-400 text-xs mt-1">No obligation to enquire</p>
               </div>
             </div>
           </div>
+
+          {/* Process reminder */}
+          <div className="max-w-3xl mx-auto px-4 py-12">
+            <h3 className="text-center text-xl font-bold mb-8 text-gray-800" style={{ fontFamily: "'Playfair Display', serif" }}>What happens next</h3>
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 text-center">
+              {[
+                { n: '1', t: 'You enquire', b: 'Send your idea using the form above' },
+                { n: '2', t: 'I get back to you', b: 'Personalised quote within 48 hours' },
+                { n: '3', t: 'Secure your spot', b: '50% deposit confirms your booking' },
+                { n: '4', t: 'I get to work', b: 'Progress updates along the way' },
+                { n: '5', t: 'Delivered to you', b: 'Balance due, then shipped with care' },
+              ].map((s, i) => (
+                <div key={i} className="flex flex-col items-center">
+                  <div className="w-10 h-10 rounded-full bg-amber-900 text-white flex items-center justify-center font-bold text-sm mb-3">{s.n}</div>
+                  <p className="font-semibold text-sm text-gray-800 mb-1">{s.t}</p>
+                  <p className="text-xs text-gray-400 leading-relaxed">{s.b}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </section>
       )}
 
