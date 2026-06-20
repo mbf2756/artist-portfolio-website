@@ -58,7 +58,7 @@ const ArtistPortfolio = () => {
     { name: 'The Nguyen Family', location: 'Brisbane, QLD', text: 'Asha captured the essence of our family beautifully. Highly recommended!' }
   ];
 
-  const testimonials = featuredReviews;
+
 
   const whyChoose = [
     {
