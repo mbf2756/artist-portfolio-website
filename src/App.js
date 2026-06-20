@@ -23,9 +23,9 @@ const ArtistPortfolio = () => {
 
   const featuredWorks = [
     { id: 1, title: 'Mother & Child', image: '/images/image (1).png', price: '$150-200' },
-    { id: 2, title: 'Serene Portrait', image: '/images/image (2).png', price: '$150-200' },
-    { id: 3, title: 'Intimate Moment', image: '/images/image (3).png', price: '$150-200' },
-    { id: 4, title: 'Family Bond', image: '/images/image (4).png', price: '$150-200' },
+    { id: 3, title: 'Joyful Portrait', image: '/images/image (3).png', price: '$150-200' },
+    { id: 7, title: 'Radiant Smile', image: '/images/image (7).png', price: '$150-200' },
+    { id: 11, title: 'Wedding Moment', image: '/images/image (11).png', price: '$150-200' },
   ];
 
   const featuredReviews = [
