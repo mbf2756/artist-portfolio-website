@@ -22,10 +22,10 @@ const ArtistPortfolio = () => {
   }, []);
 
   const featuredWorks = [
-    { id: 1, title: 'Mother & Child', image: '/images/image (1).png', price: '$150-200' },
-    { id: 3, title: 'Joyful Portrait', image: '/images/image (3).png', price: '$150-200' },
-    { id: 7, title: 'Radiant Smile', image: '/images/image (7).png', price: '$150-200' },
-    { id: 11, title: 'Wedding Moment', image: '/images/image (11).png', price: '$150-200' },
+    { id: 1,  title: 'Mother & Child',     image: '/images/image (1).png' },
+    { id: 22, title: 'Couple in Embrace',  image: '/images/gallery-new-9.jpg' },
+    { id: 16, title: 'Two Dogs — Max & Friend', image: '/images/gallery-new-3.jpg' },
+    { id: 26, title: 'Green Parrot',       image: '/images/gallery-new-13.jpg' },
   ];
 
   const featuredReviews = [
@@ -76,22 +76,33 @@ const ArtistPortfolio = () => {
 
 
   const artworks = [
-    { id: 1, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (1).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 2, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (2).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 3, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (3).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 4, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (4).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 5, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (5).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 6, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (6).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 7, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (7).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 8, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (8).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 9, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (9).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 10, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (10).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 11, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (11).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 12, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (12).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 13, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (13).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 14, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (14).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 15, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (15).png', size: 'A4 Paper', price: '$150-200' },
-    { id: 16, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (16).png', size: 'A4 Paper', price: '$150-200' },
+    { id: 1,  title: 'Mother & Child',           medium: 'Oil Painting',      image: '/images/image (1).png' },
+    { id: 2,  title: 'Lady with Earrings',        medium: 'Graphite Sketch',   image: '/images/image (3).png' },
+    { id: 3,  title: 'Smiling Portrait',          medium: 'Graphite Sketch',   image: '/images/image (5).png' },
+    { id: 4,  title: 'Gentleman Portrait',        medium: 'Graphite Sketch',   image: '/images/image (6).png' },
+    { id: 5,  title: 'Child Portrait',            medium: 'Graphite Sketch',   image: '/images/image (7).png' },
+    { id: 6,  title: 'Serene Portrait',           medium: 'Coloured Pencil',   image: '/images/image (8).png' },
+    { id: 7,  title: 'Boy in Red Jacket',         medium: 'Coloured Pencil',   image: '/images/image (9).png' },
+    { id: 8,  title: 'Dachshund Portrait',        medium: 'Graphite Sketch',   image: '/images/image (10).png' },
+    { id: 9,  title: 'Wedding Moment',            medium: 'Coloured Pencil',   image: '/images/image (11).png' },
+    { id: 10, title: 'Two Men Portrait',          medium: 'Graphite Sketch',   image: '/images/image (13).png' },
+    { id: 11, title: 'Dog Portrait',              medium: 'Graphite Sketch',   image: '/images/image (14).png' },
+    { id: 12, title: 'Dog Looking Up',            medium: 'Graphite Sketch',   image: '/images/image (15).png' },
+    { id: 13, title: 'Couple Portrait',           medium: 'Graphite Sketch',   image: '/images/image (16).png' },
+    { id: 14, title: 'Family Portrait',           medium: 'Graphite Sketch',   image: '/images/gallery-new-1.jpg' },
+    { id: 15, title: 'Group Portrait',            medium: 'Graphite Sketch',   image: '/images/gallery-new-2.jpg' },
+    { id: 16, title: 'Two Dogs — Max & Friend',   medium: 'Coloured Pencil',   image: '/images/gallery-new-3.jpg' },
+    { id: 17, title: 'Father & Children',         medium: 'Coloured Pencil',   image: '/images/gallery-new-4.jpg' },
+    { id: 18, title: 'Joyful Portrait',           medium: 'Coloured Pencil',   image: '/images/gallery-new-5.jpg' },
+    { id: 19, title: 'Couple with Shih Tzu',      medium: 'Coloured Pencil',   image: '/images/gallery-new-6.jpg' },
+    { id: 20, title: 'Laughing Boy',              medium: 'Coloured Pencil',   image: '/images/gallery-new-7.jpg' },
+    { id: 21, title: 'Wedding Portrait',          medium: 'Oil Painting',      image: '/images/gallery-new-8.jpg' },
+    { id: 22, title: 'Couple in Embrace',         medium: 'Oil Painting',      image: '/images/gallery-new-9.jpg' },
+    { id: 23, title: 'Framed Girl Portrait',      medium: 'Oil Painting',      image: '/images/gallery-new-10.jpg' },
+    { id: 24, title: 'Dog in Cap',                medium: 'Oil Painting',      image: '/images/gallery-new-11.jpg' },
+    { id: 25, title: 'Pug in Harness',            medium: 'Coloured Pencil',   image: '/images/gallery-new-12.jpg' },
+    { id: 26, title: 'Green Parrot',              medium: 'Oil Painting',      image: '/images/gallery-new-13.jpg' },
+    { id: 27, title: 'Curly-haired Portrait',     medium: 'Oil Painting',      image: '/images/gallery-new-14.jpg' },
   ];
 
   const faqTop = [
@@ -296,7 +307,7 @@ const ArtistPortfolio = () => {
                 {featuredWorks.map((work, i) => (
                   <div
                     key={work.id}
-                    onClick={() => setSelectedImage(artworks[work.id - 1])}
+                    onClick={() => setSelectedImage(artworks.find(a => a.id === work.id))}
                     className="group cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
                   >
                     <div className="relative overflow-hidden bg-gray-100" style={{ paddingBottom: '120%' }}>
@@ -769,10 +780,8 @@ const ArtistPortfolio = () => {
                     </div>
                   </div>
                   <div className="p-3 bg-white">
-                    <h3 className="font-bold text-sm">{artwork.title}</h3>
-                    <p className="text-xs text-gray-600 mb-0.5">{artwork.category}</p>
-                    <p className="text-xs text-gray-500 mb-1">{artwork.size}</p>
-                    <p className="text-amber-900 font-semibold text-xs">{artwork.price}</p>
+                    <h3 className="font-semibold text-sm text-gray-800">{artwork.title}</h3>
+                    <p className="text-xs text-amber-900 mt-0.5">{artwork.medium}</p>
                   </div>
                 </div>
               ))}
@@ -1064,9 +1073,7 @@ const ArtistPortfolio = () => {
 
               <div className="bg-white p-4 lg:p-5 border-t lg:border-t-0 lg:border-l border-gray-200" style={{ width: '100%', maxWidth: '280px', overflowY: 'auto' }}>
                 <h3 className="text-xl font-bold mb-1">{selectedImage.title}</h3>
-                <p className="text-sm text-gray-600 mb-0.5">{selectedImage.category}</p>
-                <p className="text-xs text-gray-500 mb-2">Size: {selectedImage.size}</p>
-                <p className="text-amber-900 font-semibold text-base mb-3">Price: {selectedImage.price}</p>
+                <p className="text-sm text-amber-900 mb-4">{selectedImage.medium}</p>
                 <button
                   onClick={() => {
                     setSelectedImage(null);
