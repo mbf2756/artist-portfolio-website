@@ -16,6 +16,7 @@ const ArtistPortfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showAllReviews, setShowAllReviews] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     emailjs.init('Pmhf_2RyBSjCYmGHY');
@@ -238,23 +239,26 @@ const ArtistPortfolio = () => {
     <div className="min-h-screen bg-white text-gray-900" style={{ fontFamily: "'Lora', serif" }}>
       {/* Navigation */}
       <nav className="sticky top-0 bg-white border-b border-gray-200 z-40">
-        <div className="max-w-6xl mx-auto px-4 flex items-center justify-between" style={{ minHeight: '80px' }}>
-          <button onClick={() => setActiveSection('home')} className="focus:outline-none flex-shrink-0">
-            <img 
-              src="/logo-asha.png" 
-              alt="Asha Ann Jose — Portrait Artist" 
+        <div className="max-w-6xl mx-auto px-4 flex items-center justify-between" style={{ minHeight: '72px' }}>
+          {/* Logo */}
+          <button onClick={() => { setActiveSection('home'); setShowMenu(false); }} className="focus:outline-none flex-shrink-0">
+            <img
+              src="/logo-asha.png"
+              alt="Asha Ann Jose — Portrait Artist"
               className="object-contain cursor-pointer"
-              style={{ height: '64px', maxWidth: '280px' }}
+              style={{ height: '60px', maxWidth: '220px' }}
             />
           </button>
-          <div className="flex gap-8 text-base font-medium">
+
+          {/* Desktop nav links */}
+          <div className="hidden md:flex gap-8 text-base font-medium">
             {['home', 'about', 'gallery', 'contact', 'faq'].map(section => (
               <button
                 key={section}
                 onClick={() => setActiveSection(section)}
                 className={`capitalize transition-colors tracking-wide ${
                   activeSection === section
-                    ? 'text-amber-900 border-b-2 border-amber-900'
+                    ? 'text-amber-900 border-b-2 border-amber-900 pb-0.5'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -262,7 +266,51 @@ const ArtistPortfolio = () => {
               </button>
             ))}
           </div>
+
+          {/* Mobile: current page label + hamburger */}
+          <div className="flex md:hidden items-center gap-3">
+            <span className="text-amber-900 font-semibold text-sm capitalize">{activeSection}</span>
+            <button
+              onClick={() => setShowMenu(!showMenu)}
+              className="w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none"
+              aria-label="Menu"
+            >
+              <span className={`block h-0.5 bg-amber-900 transition-all duration-300 ${showMenu ? 'w-6 rotate-45 translate-y-2' : 'w-6'}`}></span>
+              <span className={`block h-0.5 bg-amber-900 transition-all duration-300 ${showMenu ? 'opacity-0 w-0' : 'w-5'}`}></span>
+              <span className={`block h-0.5 bg-amber-900 transition-all duration-300 ${showMenu ? 'w-6 -rotate-45 -translate-y-2' : 'w-6'}`}></span>
+            </button>
+          </div>
         </div>
+
+        {/* Mobile dropdown menu */}
+        {showMenu && (
+          <div className="md:hidden bg-white border-t border-amber-100 shadow-lg">
+            {['home', 'about', 'gallery', 'contact', 'faq'].map(section => (
+              <button
+                key={section}
+                onClick={() => { setActiveSection(section); setShowMenu(false); }}
+                className={`w-full text-left px-6 py-4 capitalize font-medium text-base border-b border-gray-100 flex items-center justify-between transition-colors ${
+                  activeSection === section
+                    ? 'text-amber-900 bg-amber-50'
+                    : 'text-gray-700 hover:bg-amber-50 hover:text-amber-900'
+                }`}
+              >
+                <span>{section}</span>
+                {activeSection === section && (
+                  <span className="w-2 h-2 rounded-full bg-amber-900 flex-shrink-0"></span>
+                )}
+              </button>
+            ))}
+            <div className="px-6 py-4">
+              <button
+                onClick={() => { setActiveSection('contact'); setShowMenu(false); }}
+                className="w-full bg-amber-900 text-white py-3 rounded-full font-semibold text-sm hover:bg-amber-800 transition"
+              >
+                Commission a Portrait
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Home Section */}
