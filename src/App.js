@@ -90,56 +90,59 @@ const ArtistPortfolio = () => {
     { id: 16, title: 'Portrait in Charcoal', category: 'Pencil Sketch', image: '/images/image (16).png', size: 'A4 Paper', price: '$150-200' },
   ];
 
-  const faqData = [
-    {
-      question: 'How long does a custom portrait take?',
-      answer: 'Most graphite portraits are completed within 1–2 weeks, while oil paintings typically take 4–8 weeks. Timing depends on the size, detail, and complexity of the artwork. If you have a specific deadline, please let me know when enquiring.'
-    },
+  const faqTop = [
     {
       question: 'What is your commission process?',
       answerList: [
-        'Contact me to discuss your portrait idea.',
-        'Receive a personalised quote and timeline.',
-        'Secure your booking with a 50% deposit.',
-        'I create your artwork and provide updates along the way.',
-        'Final payment is due upon completion before delivery or shipping.'
+        "Get in touch to share your portrait idea and any reference photos.",
+        "I'll send you a personalised quote and estimated timeline.",
+        "A 50% deposit secures your spot and work begins.",
+        "I keep you updated with progress along the way.",
+        "Once complete, the remaining balance is due before I deliver or ship your artwork."
       ]
     },
     {
-      question: 'Do you work from photos or in person?',
-      answer: 'I primarily work from high-quality photographs, allowing me to create portraits for clients worldwide. Local consultations or photography sessions may be available by arrangement.'
-    },
-    {
-      question: 'Can you create a portrait of a specific person, pet, or subject?',
-      answer: 'Absolutely. I create custom artwork of people, pets, families, landscapes, and meaningful places. Every commission is tailored to your vision and preferences.'
-    },
-    {
-      question: 'Do you have a waiting list?',
-      answer: 'I accept a limited number of commissions at a time to ensure every artwork receives the attention it deserves. Availability varies throughout the year, so early bookings are recommended.'
-    },
-    {
-      question: 'What is your refund policy?',
-      answer: 'A 50% deposit is required to secure your booking and is non-refundable once work has commenced. If you have concerns about the finished artwork, I am happy to discuss reasonable revisions to ensure your satisfaction.'
-    },
-    {
-      question: 'What sizes are available?',
-      answer: 'I offer a range of standard sizes for both graphite portraits and oil paintings, with custom sizes available on request. I\'m happy to recommend the best option for your space and budget.'
-    },
-    {
-      question: 'What payment methods do you accept?',
-      answer: 'Payments can be made via bank transfer or PayPal. A 50% deposit is required to begin your commission, with the balance payable upon completion.'
-    },
-    {
-      question: 'Do you ship internationally?',
-      answer: 'Yes, I ship artwork worldwide. Every piece is carefully packaged, insured, and sent with tracking to ensure it arrives safely.'
+      question: 'How long does a custom portrait take?',
+      answer: "Graphite and coloured pencil portraits are typically completed within 1–2 weeks. Watercolour and oil paintings usually take 4–8 weeks depending on size and detail. If you have a gift deadline or special occasion in mind, just let me know when you enquire and I'll do my best to accommodate you."
     },
     {
       question: 'How much does a custom portrait cost?',
-      answer: 'Pricing depends on the size, medium, number of subjects, and level of detail. Contact me for a personalised quote.'
+      answer: "Pricing is based on the medium, size, number of subjects, and level of detail involved. Every commission is unique, so I provide a personalised quote after we chat about what you have in mind. There's no obligation — feel free to reach out and ask!"
+    }
+  ];
+
+  const faqData = [
+    {
+      question: 'Can you create a portrait of a specific person, pet, or subject?',
+      answer: "Absolutely. I create custom portraits of people, pets, families, and meaningful places. Whether it's a beloved pet, a family milestone, or a cherished memory, every piece is thoughtfully tailored to your vision."
+    },
+    {
+      question: 'Do you work from photos or in person?',
+      answer: "I work primarily from high-quality photographs, which means I can create portraits for clients anywhere in the world. For clients in Brisbane, local consultations or photography sessions may also be available by arrangement."
     },
     {
       question: 'Can I commission a portrait as a gift?',
-      answer: 'Yes! Custom portraits make meaningful gifts for birthdays, anniversaries, weddings, memorials, and other special occasions.'
+      answer: "Yes! A hand-crafted portrait makes a truly memorable gift for birthdays, anniversaries, weddings, new babies, or to honour a loved one. Just let me know your occasion and deadline when you get in touch."
+    },
+    {
+      question: 'Do you have a waiting list?',
+      answer: "I take on a limited number of commissions at a time so that every artwork gets my full attention. Availability does fill up, especially around gift-giving seasons, so I recommend reaching out early to secure your spot."
+    },
+    {
+      question: 'What sizes are available?',
+      answer: "I offer a range of standard sizes for both graphite portraits and paintings, with custom sizes available on request. I'm happy to help you choose the best size for your space and budget."
+    },
+    {
+      question: 'What payment methods do you accept?',
+      answer: "I accept payment via bank transfer or PayPal. A 50% deposit is required to begin your commission, with the balance due upon completion."
+    },
+    {
+      question: 'What is your refund policy?',
+      answer: "The 50% deposit is non-refundable once work has commenced, as it covers the time and materials invested in your piece. If you have any concerns about the finished artwork, I'm always happy to discuss revisions to make sure you're delighted with the result."
+    },
+    {
+      question: 'Do you ship internationally?',
+      answer: "Yes, I ship artwork worldwide. Every piece is carefully packaged, fully insured, and sent with tracking so it arrives safely to your door."
     }
   ];
 
@@ -672,48 +675,92 @@ const ArtistPortfolio = () => {
 
       {/* FAQ Section */}
       {activeSection === 'faq' && (
-        <section className="py-12 bg-white">
+        <section className="py-14 bg-white">
           <div className="max-w-3xl mx-auto px-4">
-            <h2 className="text-4xl font-bold mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-              FAQ
+
+            {/* Header */}
+            <h2 className="text-4xl font-bold mb-3 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Frequently Asked Questions
             </h2>
-            <p className="text-center text-gray-600 mb-10 text-sm">
-              Common questions about commissions, pricing, and process
+            <p className="text-center text-gray-500 mb-10 text-base">
+              Everything you need to know before placing your commission
             </p>
 
-            <div className="space-y-3">
+            {/* Top 3 — always expanded */}
+            <div className="space-y-5 mb-12">
+              {faqTop.map((item, index) => (
+                <div key={index} className="rounded-xl border border-amber-200 bg-amber-50 overflow-hidden">
+                  <div className="px-6 py-4 border-b border-amber-200">
+                    <h3 className="font-semibold text-base text-amber-900">{item.question}</h3>
+                  </div>
+                  <div className="px-6 py-4 text-gray-700 text-base leading-relaxed">
+                    {item.answerList ? (
+                      <ol className="list-none space-y-2">
+                        {item.answerList.map((step, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-amber-900 text-white text-xs font-bold flex items-center justify-center mt-0.5">{i + 1}</span>
+                            <span>{step}</span>
+                          </li>
+                        ))}
+                      </ol>
+                    ) : (
+                      item.answer
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Divider */}
+            <div className="flex items-center gap-4 mb-8">
+              <div className="flex-1 h-px bg-gray-200" />
+              <span className="text-gray-400 text-sm font-medium whitespace-nowrap">More questions</span>
+              <div className="flex-1 h-px bg-gray-200" />
+            </div>
+
+            {/* Remaining FAQs — collapsible */}
+            <div className="space-y-3 mb-14">
               {faqData.map((item, index) => (
                 <div
                   key={index}
-                  className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                  className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-sm transition-shadow"
                 >
                   <button
                     onClick={() => setExpandedFAQ(expandedFAQ === index ? null : index)}
-                    className="w-full px-5 py-3 flex items-center justify-between bg-white hover:bg-amber-50 transition text-sm"
+                    className="w-full px-5 py-4 flex items-center justify-between bg-white hover:bg-amber-50 transition text-base"
                   >
-                    <span className="font-semibold text-left">{item.question}</span>
+                    <span className="font-medium text-left text-gray-800">{item.question}</span>
                     <ChevronDown
-                      className={`w-4 h-4 text-amber-900 flex-shrink-0 transition-transform ${
+                      className={`w-4 h-4 text-amber-900 flex-shrink-0 transition-transform ml-4 ${
                         expandedFAQ === index ? 'rotate-180' : ''
                       }`}
                     />
                   </button>
                   {expandedFAQ === index && (
-                    <div className="px-5 py-3 bg-amber-50 border-t border-gray-200 text-gray-700 text-sm">
-                      {item.answerList ? (
-                        <ol className="list-decimal list-inside space-y-1">
-                          {item.answerList.map((step, i) => (
-                            <li key={i}>{step}</li>
-                          ))}
-                        </ol>
-                      ) : (
-                        item.answer
-                      )}
+                    <div className="px-5 py-4 bg-gray-50 border-t border-gray-200 text-gray-700 text-base leading-relaxed">
+                      {item.answer}
                     </div>
                   )}
                 </div>
               ))}
             </div>
+
+            {/* CTA */}
+            <div className="bg-amber-900 rounded-2xl px-8 py-10 text-center text-white">
+              <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Ready to commission your portrait?
+              </h3>
+              <p className="text-amber-200 text-base mb-6">
+                Get in touch and I'll send you a personalised quote within 48 hours. No obligation.
+              </p>
+              <button
+                onClick={() => setActiveSection('contact')}
+                className="inline-block bg-white text-amber-900 font-semibold px-8 py-3 rounded-full text-base hover:bg-amber-50 transition"
+              >
+                Start Your Commission
+              </button>
+            </div>
+
           </div>
         </section>
       )}
