@@ -76,7 +76,7 @@ const ArtistPortfolio = () => {
 
 
   const artworks = [
-    { id: 1,  title: 'Mother & Child',            medium: 'Oil Painting',      image: '/images/image (1).png' },
+    { id: 1,  title: 'Mother & Child',            medium: 'Watercolour',        image: '/images/image (1).png' },
     { id: 2,  title: 'Lady with Earrings',         medium: 'Graphite Sketch',   image: '/images/image (3).png' },
     { id: 3,  title: 'Gentleman Portrait',         medium: 'Graphite Sketch',   image: '/images/image (5).png' },
     { id: 4,  title: 'Child Portrait',             medium: 'Graphite Sketch',   image: '/images/image (6).png' },
@@ -89,20 +89,20 @@ const ArtistPortfolio = () => {
     { id: 11, title: 'Dog Portrait',               medium: 'Graphite Sketch',   image: '/images/image (14).png' },
     { id: 12, title: 'Dog Looking Up',             medium: 'Graphite Sketch',   image: '/images/image (15).png' },
     { id: 13, title: 'Couple Portrait',            medium: 'Graphite Sketch',   image: '/images/image (16).png' },
-    { id: 14, title: 'Child Portrait',             medium: 'Graphite Sketch',   image: '/images/gallery-new-1.jpg' },
-    { id: 15, title: 'Group Portrait',             medium: 'Graphite Sketch',   image: '/images/gallery-new-2.jpg' },
+    { id: 14, title: 'Dog Portrait',               medium: 'Coloured Pencil',   image: '/images/gallery-new-1.jpg' },
+    { id: 15, title: 'Couple with Their Fur Baby', medium: 'Watercolour',        image: '/images/gallery-new-2.jpg' },
     { id: 16, title: 'Two Dogs — Max & Friend',    medium: 'Coloured Pencil',   image: '/images/gallery-new-3.jpg' },
     { id: 17, title: 'Father & Two Children',      medium: 'Coloured Pencil',   image: '/images/gallery-new-4.jpg' },
-    { id: 18, title: 'Smiling Lady Portrait',      medium: 'Coloured Pencil',   image: '/images/gallery-new-5.jpg' },
-    { id: 19, title: 'Couple with Shih Tzu',       medium: 'Coloured Pencil',   image: '/images/gallery-new-6.jpg' },
-    { id: 20, title: 'Laughing Boy',               medium: 'Coloured Pencil',   image: '/images/gallery-new-7.jpg' },
-    { id: 21, title: 'Indian Wedding Portrait',    medium: 'Oil Painting',      image: '/images/gallery-new-8.jpg' },
+    { id: 18, title: 'Laughing Boy',               medium: 'Coloured Pencil',   image: '/images/gallery-new-5.jpg' },
+    { id: 19, title: 'Smiling Lady',               medium: 'Coloured Pencil',   image: '/images/gallery-new-6.jpg' },
+    { id: 20, title: 'Father with Two Children',   medium: 'Coloured Pencil',   image: '/images/gallery-new-7.jpg' },
+    { id: 21, title: 'Pug on Sofa',                medium: 'Oil Painting',      image: '/images/gallery-new-8.jpg' },
     { id: 22, title: 'Wedding Couple',             medium: 'Oil Painting',      image: '/images/gallery-new-9.jpg' },
-    { id: 23, title: 'Girl with Her Portrait',     medium: 'Oil Painting',      image: '/images/gallery-new-10.jpg' },
-    { id: 24, title: 'Parrot Portrait',            medium: 'Oil Painting',      image: '/images/gallery-new-11.jpg' },
-    { id: 25, title: 'Pug on Red Sofa',            medium: 'Oil Painting',      image: '/images/gallery-new-12.jpg' },
-    { id: 26, title: 'Dog in Cap',                 medium: 'Oil Painting',      image: '/images/gallery-new-13.jpg' },
-    { id: 27, title: 'Curly-haired Portrait',      medium: 'Oil Painting',      image: '/images/gallery-new-14.jpg' },
+    { id: 23, title: 'Indian Wedding Portrait',    medium: 'Oil Painting',      image: '/images/gallery-new-10.jpg' },
+    { id: 24, title: 'Dog in Cap',                 medium: 'Oil Painting',      image: '/images/gallery-new-11.jpg' },
+    { id: 25, title: 'Girl Portrait',              medium: 'Oil Painting',      image: '/images/gallery-new-12.jpg' },
+    { id: 26, title: 'Parrot Portrait',            medium: 'Oil Painting',      image: '/images/gallery-new-13.jpg' },
+    { id: 27, title: 'Aashka with Her Portrait',   medium: 'Oil Painting',      image: '/images/gallery-new-14.jpg' },
   ];
 
   const faqTop = [
