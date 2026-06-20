@@ -122,7 +122,37 @@ const ArtistPortfolio = () => {
     },
     {
       question: 'How much does a custom portrait cost?',
-      answer: "Pricing is based on the medium, size, number of subjects, and level of detail involved. Every commission is unique, so I provide a personalised quote after we chat about what you have in mind. There's no obligation — feel free to reach out and ask!"
+      pricingTable: [
+        {
+          medium: 'Graphite Sketch',
+          icon: '✏️',
+          rows: [
+            { label: 'Single face', price: '$70 – $200' },
+            { label: '2 faces',     price: '$190 – $240' },
+          ],
+          note: 'Watercolour pricing is the same as graphite sketch.'
+        },
+        {
+          medium: 'Coloured Pencil',
+          icon: '🎨',
+          rows: [
+            { label: 'Single face', price: '$100 – $230' },
+            { label: '2 faces',     price: '$140 – $280' },
+            { label: '3 faces',     price: '$260 – $350' },
+          ]
+        },
+        {
+          medium: 'Oil Painting',
+          icon: '🖼️',
+          rows: [
+            { label: 'Single face',        price: '$250 – $420' },
+            { label: '2 faces (10×10)',     price: '$420' },
+            { label: '2 faces (16×20)',     price: '$1,380' },
+            { label: '2 faces (16×24)',     price: '$1,650' },
+          ]
+        },
+      ],
+      pricingNote: "All prices are indicative. Final pricing depends on the size, complexity, and level of detail. Contact me for a personalised quote — no obligation to enquire."
     }
   ];
 
@@ -973,6 +1003,31 @@ const ArtistPortfolio = () => {
                           </li>
                         ))}
                       </ol>
+                    ) : item.pricingTable ? (
+                      <div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                          {item.pricingTable.map((section, si) => (
+                            <div key={si} className="bg-white rounded-xl border border-amber-200 overflow-hidden">
+                              <div className="bg-amber-900 px-4 py-2 flex items-center gap-2">
+                                <span className="text-base">{section.icon}</span>
+                                <h4 className="text-white font-semibold text-sm">{section.medium}</h4>
+                              </div>
+                              <div className="px-4 py-3 space-y-2">
+                                {section.rows.map((row, ri) => (
+                                  <div key={ri} className="flex justify-between items-center text-sm">
+                                    <span className="text-gray-600">{row.label}</span>
+                                    <span className="font-semibold text-amber-900 whitespace-nowrap ml-2">{row.price}</span>
+                                  </div>
+                                ))}
+                                {section.note && (
+                                  <p className="text-xs text-gray-400 pt-2 border-t border-amber-100 mt-2">{section.note}</p>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        <p className="text-sm text-gray-500 italic bg-white rounded-lg px-4 py-3 border border-amber-100">{item.pricingNote}</p>
+                      </div>
                     ) : (
                       item.answer
                     )}
