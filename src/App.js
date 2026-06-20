@@ -433,7 +433,8 @@ const ArtistPortfolio = () => {
                   <img
                     src="/images/about-headshot.jpg.jpg"
                     alt="Asha Jose — Portrait Artist"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: '60% 15%' }}
                   />
                 </div>
               </div>
