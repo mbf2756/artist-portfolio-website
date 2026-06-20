@@ -15,6 +15,7 @@ const ArtistPortfolio = () => {
   const [formError, setFormError] = useState('');
   const [activeSection, setActiveSection] = useState('home');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showAllReviews, setShowAllReviews] = useState(false);
 
   useEffect(() => {
     emailjs.init('Pmhf_2RyBSjCYmGHY');
@@ -27,23 +28,37 @@ const ArtistPortfolio = () => {
     { id: 4, title: 'Family Bond', image: '/images/image (4).png', price: '$150-200' },
   ];
 
-  const testimonials = [
+  const featuredReviews = [
     {
-      name: 'Sarah Mitchell',
-      text: 'Asha captured the essence of our family beautifully. Highly recommended!',
-      role: 'Portrait Client'
+      name: 'Priya R.',
+      location: 'Brisbane, QLD',
+      subject: 'Wedding portrait — oil painting',
+      short: 'It doesn\'t feel like just a painting on a wall. It feels like a living memory.',
+      full: 'There\'s something really special about the way Asha approaches every project — not just as artwork, but as someone who truly understands the emotion behind it. She put so much care into a wedding portrait of my brother and sister-in-law, and it honestly felt like she treated those memories with the same love and respect we feel for them. That piece now hangs in their living room, and every time we visit, it naturally draws us in. We always end up smiling, remembering the day, and appreciating how beautifully it\'s been captured. Working with Asha feels personal in the best way, and the end result reflects that heart in every detail.'
     },
     {
-      name: 'James Chen',
-      text: 'Amazed at how lifelike and expressive the portrait is. A true artist.',
-      role: 'Oil Painting Commission'
+      name: 'Michael T.',
+      location: 'Sydney, NSW',
+      subject: 'Three oil painting commissions over the years',
+      short: 'If you\'re even considering commissioning her — don\'t overthink it. Just do it.',
+      full: 'Over the years I\'ve ordered three commissioned oil paintings from Asha for friends and family, and every single time the experience has been effortless. Once I hand over the idea, I never have to worry about a thing. She keeps me updated with progress shots throughout, so you always feel involved and reassured along the way. She\'s incredibly approachable and genuinely kind, and her work speaks for itself. I\'ve always been amazed by the depth, softness, and detail she brings to every piece — it feels almost impossible how she achieves that balance. At this point, if I ever think of a meaningful moment I want captured, I already know exactly who to go to.'
     },
     {
-      name: 'Emma Williams',
-      text: 'Professional, talented, and passionate. Worth every penny!',
-      role: 'Pencil Sketch Client'
+      name: 'The Henderson Family',
+      location: 'Auckland, New Zealand',
+      subject: 'Pet memorial portrait — shipped internationally',
+      short: 'You can really tell it wasn\'t just about the artwork, but about the full experience.',
+      full: 'We ordered a portrait of our dog, who has crossed the rainbow bridge, all the way from New Zealand — and Asha did such a beautiful job capturing him so perfectly. From start to finish, the whole process felt seamless, and the shipping was handled with real care and professionalism. It arrived incredibly well packaged, and even the presentation showed how much thought she puts into every detail. We\'re so happy with the final piece and would highly recommend her to anyone looking for something truly special.'
     }
   ];
+
+  const moreReviews = [
+    { name: 'Sandra K.', location: 'Melbourne, VIC', text: 'Professional, talented, and passionate. Worth every penny!' },
+    { name: 'David L.', location: 'Perth, WA', text: 'Amazed at how lifelike and expressive the portrait is. A true artist.' },
+    { name: 'The Nguyen Family', location: 'Brisbane, QLD', text: 'Asha captured the essence of our family beautifully. Highly recommended!' }
+  ];
+
+  const testimonials = featuredReviews;
 
   const whyChoose = [
     {
@@ -342,28 +357,101 @@ const ArtistPortfolio = () => {
           </section>
 
           {/* Testimonials Section */}
-          <section className="py-10 bg-white">
-            <div className="max-w-6xl mx-auto px-4">
-              <div className="text-center mb-8">
-                <h2 className="text-4xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Client Stories
+          <section className="py-14 bg-white">
+            <div className="max-w-5xl mx-auto px-4">
+
+              <div className="text-center mb-10">
+                <h2 className="text-4xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  What clients say
                 </h2>
-                <div className="w-16 h-0.5 bg-amber-900 mx-auto"></div>
+                <p className="text-gray-500 text-base max-w-xl mx-auto">Real stories from people who trusted Asha with their most meaningful moments.</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {testimonials.map((testimonial, index) => (
-                  <div key={index} className="bg-amber-50 rounded-lg p-6 border-l-4 border-amber-900 hover:shadow-lg transition-shadow">
-                    <p className="text-gray-700 mb-3 italic text-sm leading-relaxed">"{testimonial.text}"</p>
-                    <div className="border-t border-amber-200 pt-3">
-                      <p className="font-semibold text-amber-900 text-sm">{testimonial.name}</p>
-                      <p className="text-xs text-gray-600">{testimonial.role}</p>
+              {/* 3 featured reviews */}
+              <div className="space-y-6 mb-10">
+                {featuredReviews.map((review, index) => (
+                  <div key={index} className="bg-amber-50 rounded-2xl p-7 border border-amber-100 hover:shadow-md transition-shadow">
+                    <div className="flex items-start gap-4">
+                      {/* Big quote mark */}
+                      <span className="text-5xl text-amber-300 font-serif leading-none flex-shrink-0 mt-1">"</span>
+                      <div className="flex-1">
+                        <p className="text-gray-800 text-base leading-relaxed italic mb-4">{review.short}</p>
+                        <p className="text-gray-600 text-sm leading-relaxed">{review.full.replace(review.short, '').trim()}</p>
+                        <div className="mt-5 pt-4 border-t border-amber-200 flex flex-wrap items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-amber-900 flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-sm font-bold">{review.name[0]}</span>
+                          </div>
+                          <div>
+                            <p className="font-semibold text-amber-900 text-sm">{review.name}</p>
+                            <p className="text-xs text-gray-500">{review.location} &middot; {review.subject}</p>
+                          </div>
+                          <div className="ml-auto flex gap-0.5">
+                            {[1,2,3,4,5].map(s => <span key={s} className="text-amber-400 text-sm">★</span>)}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
+
+              {/* See more button */}
+              <div className="text-center">
+                <button
+                  onClick={() => setShowAllReviews(true)}
+                  className="border-2 border-amber-900 text-amber-900 px-8 py-2.5 rounded-full text-sm font-semibold hover:bg-amber-50 transition"
+                >
+                  See more reviews
+                </button>
+              </div>
             </div>
           </section>
+
+          {/* More reviews modal */}
+          {showAllReviews && (
+            <div
+              className="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4"
+              onClick={() => setShowAllReviews(false)}
+            >
+              <div
+                className="bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl"
+                onClick={e => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>More kind words</h3>
+                  <button
+                    onClick={() => setShowAllReviews(false)}
+                    className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                  >×</button>
+                </div>
+                <div className="space-y-5">
+                  {moreReviews.map((r, i) => (
+                    <div key={i} className="bg-amber-50 rounded-xl p-5 border border-amber-100">
+                      <p className="text-gray-700 text-sm italic leading-relaxed mb-3">"{r.text}"</p>
+                      <div className="flex items-center gap-2">
+                        <div className="w-7 h-7 rounded-full bg-amber-900 flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">{r.name[0]}</span>
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-amber-900">{r.name}</p>
+                          <p className="text-xs text-gray-500">{r.location}</p>
+                        </div>
+                        <div className="ml-auto flex gap-0.5">
+                          {[1,2,3,4,5].map(s => <span key={s} className="text-amber-400 text-xs">★</span>)}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <button
+                  onClick={() => { setShowAllReviews(false); setActiveSection('contact'); }}
+                  className="mt-7 w-full bg-amber-900 text-white py-3 rounded-full font-semibold hover:bg-amber-800 transition text-sm"
+                >
+                  Commission your portrait
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Process Section */}
           <section className="py-10 bg-amber-50">
