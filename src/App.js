@@ -422,82 +422,166 @@ const ArtistPortfolio = () => {
 
       {/* About Section */}
       {activeSection === 'about' && (
-        <section className="py-16 bg-gradient-to-b from-white via-amber-50 to-white">
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <h1 className="text-6xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif", letterSpacing: '0.05em' }}>
-                Asha Jose
-              </h1>
-              <h2 className="text-xl text-amber-900 font-light mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Portrait Artist
-              </h2>
-              <div className="w-20 h-1 bg-amber-900 mx-auto"></div>
-            </div>
+        <section className="bg-white">
 
-            <div className="space-y-6">
-              <div className="relative">
-                <div className="absolute -left-4 top-0 text-5xl text-amber-200 opacity-30" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  "
-                </div>
-                <p className="text-lg text-gray-700 leading-relaxed font-light pl-4 italic">
-                  Art has been part of my life for as long as I can remember.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-10 border-l-4 border-amber-900">
-                <p className="text-base text-gray-800 leading-relaxed mb-5">
-                  Based in Brisbane, Queensland, I am a portrait artist with over 17 years of professional experience, working in graphite, coloured pencils, watercolour, and oil paint—my preferred medium.
-                </p>
-
-                <div className="bg-amber-50 rounded-lg p-6 my-6 border border-amber-200">
-                  <p className="text-base text-amber-900 leading-relaxed font-medium">
-                    I am passionate about capturing more than just a likeness. Every portrait is created to reflect personality, emotion, and the unique story behind the subject. My work combines traditional techniques with careful attention to detail, resulting in timeless artworks that celebrate meaningful moments and connections.
-                  </p>
-                </div>
-
-                <p className="text-base text-gray-800 leading-relaxed mb-5">
-                  Alongside my art practice, I work in higher education, an experience that continually inspires creativity and fresh perspectives.
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
-                  <div className="text-center">
-                    <div className="text-3xl text-amber-900 mb-2">✦</div>
-                    <h3 className="text-base font-bold text-amber-900 mb-2">Commissions</h3>
-                    <p className="text-gray-600 text-sm">Custom portraits tailored to your vision</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl text-amber-900 mb-2">✦</div>
-                    <h3 className="text-base font-bold text-amber-900 mb-2">Collaborations</h3>
-                    <p className="text-gray-600 text-sm">Working together to create something special</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl text-amber-900 mb-2">✦</div>
-                    <h3 className="text-base font-bold text-amber-900 mb-2">Exhibitions</h3>
-                    <p className="text-gray-600 text-sm">Showcasing artwork in galleries and spaces</p>
-                  </div>
+          {/* Hero — full-width warm intro */}
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 py-16 px-4">
+            <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
+              {/* Headshot */}
+              <div className="flex-shrink-0">
+                <div className="w-52 h-52 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-amber-900 shadow-2xl">
+                  <img
+                    src="/images/about-headshot.jpg"
+                    alt="Asha Jose — Portrait Artist"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
               </div>
-
-              <div className="bg-gradient-to-r from-amber-100 to-orange-100 rounded-lg p-8 text-center">
-                <p className="text-base text-gray-800 leading-relaxed mb-4">
-                  Completed artworks can be shipped locally, nationally, and internationally.
+              {/* Intro text */}
+              <div className="text-center md:text-left">
+                <p className="text-sm font-semibold tracking-widest text-amber-900 uppercase mb-2">Brisbane, Queensland</p>
+                <h1 className="text-5xl md:text-6xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Hi, I'm Asha
+                </h1>
+                <p className="text-xl text-gray-500 font-light mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Portrait Artist · 17+ Years Experience
                 </p>
-                <div className="h-0.5 w-12 bg-amber-900 mx-auto my-4"></div>
-                <p className="text-base text-amber-900 leading-relaxed font-medium italic">
-                  Thank you for supporting independent artists. Every portrait tells a story, and I would be honoured to help tell yours.
+                <p className="text-lg text-gray-700 leading-relaxed max-w-xl">
+                  I believe every face tells a story. A smile, a glance, a quiet expression — these are the details that make each person irreplaceable. My work exists to capture those details and keep them forever.
                 </p>
-              </div>
-
-              <div className="text-center mt-8">
-                <button
-                  onClick={() => setActiveSection('contact')}
-                  className="bg-amber-900 text-white px-10 py-3 rounded-lg font-semibold hover:bg-amber-800 transition"
-                >
-                  Start Your Commission
-                </button>
               </div>
             </div>
           </div>
+
+          {/* Story section */}
+          <div className="max-w-5xl mx-auto px-4 py-16">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl font-bold mb-5 text-amber-900" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  More than a likeness
+                </h2>
+                <p className="text-base text-gray-700 leading-relaxed mb-4">
+                  Art has been part of my life for as long as I can remember. Over 17 years of practice, I've learned that the most powerful portraits aren't just technically skilled — they carry feeling. The personality behind the eyes. The warmth in a smile. The quiet pride of someone caught in an honest moment.
+                </p>
+                <p className="text-base text-gray-700 leading-relaxed mb-4">
+                  I work in graphite, coloured pencils, watercolour, and oil paint. Oil painting is my favourite — there's a richness and depth to it that no other medium quite matches, and it gives finished pieces a timeless, heirloom quality.
+                </p>
+                <p className="text-base text-gray-700 leading-relaxed">
+                  Alongside my art practice, I work in higher education — a role that keeps me curious, connected to people, and constantly inspired by different stories and backgrounds.
+                </p>
+              </div>
+              {/* Artist with large painting */}
+              <div className="relative">
+                <img
+                  src="/images/about-with-painting.jpg"
+                  alt="Asha Jose with her oil painting"
+                  className="w-full rounded-2xl shadow-xl object-cover"
+                  style={{ maxHeight: '480px', objectPosition: 'center top' }}
+                />
+                <div className="absolute -bottom-4 -left-4 bg-amber-900 text-white rounded-xl px-5 py-3 shadow-lg">
+                  <p className="text-xs font-semibold tracking-wide uppercase opacity-75">Medium</p>
+                  <p className="text-sm font-bold">Oil on Canvas</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* What I create — mediums */}
+          <div className="bg-amber-50 py-14 px-4">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-3xl font-bold text-center mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                What I create
+              </h2>
+              <p className="text-center text-gray-500 mb-10">Every commission is a collaboration — your story, my hand.</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+                {[
+                  { medium: 'Graphite', desc: 'Timeless, precise, deeply detailed' },
+                  { medium: 'Coloured Pencil', desc: 'Vibrant tones with fine realism' },
+                  { medium: 'Watercolour', desc: 'Soft, luminous, full of feeling' },
+                  { medium: 'Oil Paint', desc: 'Rich, layered, built to last generations' }
+                ].map((m) => (
+                  <div key={m.medium} className="bg-white rounded-xl p-5 shadow-sm border border-amber-100 text-center">
+                    <div className="w-10 h-10 bg-amber-900 rounded-full mx-auto mb-3 flex items-center justify-center">
+                      <span className="text-white text-lg">✦</span>
+                    </div>
+                    <h3 className="font-bold text-amber-900 mb-1 text-sm">{m.medium}</h3>
+                    <p className="text-gray-500 text-xs leading-relaxed">{m.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* The joy of the reveal — emotional section with photo */}
+          <div className="max-w-5xl mx-auto px-4 py-16">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Photo of Asha holding portrait — reveals joy */}
+              <div className="relative order-2 md:order-1">
+                <img
+                  src="/images/about-reveal.jpg"
+                  alt="Asha revealing a completed portrait commission"
+                  className="w-full rounded-2xl shadow-xl object-cover"
+                  style={{ maxHeight: '480px', objectFit: 'cover', objectPosition: 'center' }}
+                />
+              </div>
+              <div className="order-1 md:order-2">
+                <h2 className="text-3xl font-bold mb-5 text-amber-900" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  The moment it all comes together
+                </h2>
+                <p className="text-base text-gray-700 leading-relaxed mb-4">
+                  Nothing brings me more joy than seeing a finished portrait become a treasured keepsake. When someone holds up a piece and sees their loved one looking back at them — that moment is why I do this.
+                </p>
+                <p className="text-base text-gray-700 leading-relaxed mb-6">
+                  Whether you're celebrating a loved one, honouring a cherished pet, marking a milestone, or searching for a truly meaningful gift — I will pour care, patience, and attention into every stroke. My goal is artwork that feels personal, emotional, and completely one of a kind.
+                </p>
+                <blockquote className="border-l-4 border-amber-900 pl-5 italic text-gray-600 text-base">
+                  "It is a privilege to create artwork that will be displayed, shared, and loved for generations."
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick stats strip */}
+          <div className="bg-amber-900 text-white py-10 px-4">
+            <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {[
+                { stat: '17+', label: 'Years of practice' },
+                { stat: '4', label: 'Mediums mastered' },
+                { stat: '100%', label: 'Custom commissions' },
+                { stat: '🌏', label: 'Ships worldwide' }
+              ].map((s) => (
+                <div key={s.label}>
+                  <p className="text-3xl font-bold mb-1">{s.stat}</p>
+                  <p className="text-amber-200 text-sm">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="py-16 px-4 text-center bg-white">
+            <h2 className="text-3xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Ready to commission your portrait?
+            </h2>
+            <p className="text-gray-500 text-base mb-7 max-w-lg mx-auto">
+              I'd love to hear your story. Get in touch and we'll bring it to life together.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => setActiveSection('contact')}
+                className="bg-amber-900 text-white px-10 py-3 rounded-full font-semibold hover:bg-amber-800 transition text-base"
+              >
+                Start Your Commission
+              </button>
+              <button
+                onClick={() => setActiveSection('gallery')}
+                className="border-2 border-amber-900 text-amber-900 px-10 py-3 rounded-full font-semibold hover:bg-amber-50 transition text-base"
+              >
+                View My Work
+              </button>
+            </div>
+          </div>
+
         </section>
       )}
 
