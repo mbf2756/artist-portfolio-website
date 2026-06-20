@@ -22,6 +22,10 @@ const ArtistPortfolio = () => {
     emailjs.init('Pmhf_2RyBSjCYmGHY');
   }, []);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [activeSection]);
+
   const featuredWorks = [
     { id: 1,  title: 'Mother & Child',    image: '/images/image (1).png' },
     { id: 5,  title: 'Smiling Woman',     image: '/images/image (7).png' },
