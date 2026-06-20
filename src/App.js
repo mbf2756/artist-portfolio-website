@@ -198,12 +198,14 @@ const ArtistPortfolio = () => {
       {/* Navigation */}
       <nav className="sticky top-0 bg-white border-b border-gray-200 z-40">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <img 
-            src="/logo.png" 
-            alt="AshaArtSHED Logo" 
-            className="h-20 object-contain"
-            style={{ maxWidth: '350px' }}
-          />
+          <button onClick={() => setActiveSection('home')} className="focus:outline-none">
+            <img 
+              src="/LOGO__2_.png" 
+              alt="Asha Ann Jose — Portrait Artist" 
+              className="object-contain cursor-pointer"
+              style={{ height: '80px', maxWidth: '260px' }}
+            />
+          </button>
           <div className="flex gap-6 text-sm">
             {['home', 'about', 'gallery', 'contact', 'faq'].map(section => (
               <button
