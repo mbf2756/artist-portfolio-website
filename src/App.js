@@ -1017,7 +1017,7 @@ const ArtistPortfolio = () => {
               onClick={() => setSelectedImage(null)}
               className="absolute top-3 right-3 bg-white rounded-full p-1.5 hover:bg-gray-100 transition z-10 shadow-md"
             >
-              <X className="w-5 h-5" />
+              <span className="text-xl leading-none">×</span>
             </button>
 
             <div className="flex flex-col lg:flex-row h-full" style={{ maxHeight: '95vh' }}>
