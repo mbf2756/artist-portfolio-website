@@ -23,10 +23,10 @@ const ArtistPortfolio = () => {
   }, []);
 
   const featuredWorks = [
-    { id: 1,  title: 'Mother & Child',     image: '/images/image (1).png' },
-    { id: 22, title: 'Couple in Embrace',  image: '/images/gallery-new-9.jpg' },
-    { id: 16, title: 'Two Dogs — Max & Friend', image: '/images/gallery-new-3.jpg' },
-    { id: 26, title: 'Green Parrot',       image: '/images/gallery-new-13.jpg' },
+    { id: 1,  title: 'Mother & Child',    image: '/images/image (1).png' },
+    { id: 5,  title: 'Smiling Woman',     image: '/images/image (7).png' },
+    { id: 12, title: 'Dog Looking Up',    image: '/images/image (15).png' },
+    { id: 26, title: 'Parrot Portrait',   image: '/images/gallery-new-13.jpg' },
   ];
 
   const featuredReviews = [
