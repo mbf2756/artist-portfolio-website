@@ -93,27 +93,53 @@ const ArtistPortfolio = () => {
   const faqData = [
     {
       question: 'How long does a custom portrait take?',
-      answer: 'Pencil sketches typically take 2-4 weeks, while oil paintings can take 4-8 weeks depending on complexity and size. Rush commissions are available at an additional cost.'
+      answer: 'Most graphite portraits are completed within 1–2 weeks, while oil paintings typically take 4–8 weeks. Timing depends on the size, detail, and complexity of the artwork. If you have a specific deadline, please let me know when enquiring.'
     },
     {
       question: 'What is your commission process?',
-      answer: 'First, we discuss your vision via email or phone. Then I provide a quote and timeline. A 50% deposit is required to begin work, with the remainder due upon completion.'
+      answerList: [
+        'Contact me to discuss your portrait idea.',
+        'Receive a personalised quote and timeline.',
+        'Secure your booking with a 50% deposit.',
+        'I create your artwork and provide updates along the way.',
+        'Final payment is due upon completion before delivery or shipping.'
+      ]
     },
     {
       question: 'Do you work from photos or in person?',
-      answer: 'I work primarily from high-quality photographs, which allows me to work with clients worldwide. For local clients, in-person sessions are also available.'
+      answer: 'I primarily work from high-quality photographs, allowing me to create portraits for clients worldwide. Local consultations or photography sessions may be available by arrangement.'
     },
     {
-      question: 'Can you paint/sketch a specific person or subject?',
-      answer: 'Absolutely! Commissions are my specialty. Whether it\'s a portrait, pet, or landscape, I can create a custom piece based on your requirements.'
+      question: 'Can you create a portrait of a specific person, pet, or subject?',
+      answer: 'Absolutely. I create custom artwork of people, pets, families, landscapes, and meaningful places. Every commission is tailored to your vision and preferences.'
+    },
+    {
+      question: 'Do you have a waiting list?',
+      answer: 'I accept a limited number of commissions at a time to ensure every artwork receives the attention it deserves. Availability varies throughout the year, so early bookings are recommended.'
     },
     {
       question: 'What is your refund policy?',
-      answer: 'Once work begins on your commission, the 50% deposit is non-refundable. However, if you\'re unsatisfied with the final product, we can discuss revisions.'
+      answer: 'A 50% deposit is required to secure your booking and is non-refundable once work has commenced. If you have concerns about the finished artwork, I am happy to discuss reasonable revisions to ensure your satisfaction.'
+    },
+    {
+      question: 'What sizes are available?',
+      answer: 'I offer a range of standard sizes for both graphite portraits and oil paintings, with custom sizes available on request. I\'m happy to recommend the best option for your space and budget.'
+    },
+    {
+      question: 'What payment methods do you accept?',
+      answer: 'Payments can be made via bank transfer or PayPal. A 50% deposit is required to begin your commission, with the balance payable upon completion.'
     },
     {
       question: 'Do you ship internationally?',
-      answer: 'Yes! I ship worldwide with proper insurance and packaging. Shipping costs will be calculated based on destination and artwork size.'
+      answer: 'Yes, I ship artwork worldwide. Every piece is carefully packaged, insured, and sent with tracking to ensure it arrives safely.'
+    },
+    {
+      question: 'How much does a custom portrait cost?',
+      answer: 'Pricing depends on the size, medium, number of subjects, and level of detail. Contact me for a personalised quote.'
+    },
+    {
+      question: 'Can I commission a portrait as a gift?',
+      answer: 'Yes! Custom portraits make meaningful gifts for birthdays, anniversaries, weddings, memorials, and other special occasions.'
     }
   ];
 
@@ -674,7 +700,15 @@ const ArtistPortfolio = () => {
                   </button>
                   {expandedFAQ === index && (
                     <div className="px-5 py-3 bg-amber-50 border-t border-gray-200 text-gray-700 text-sm">
-                      {item.answer}
+                      {item.answerList ? (
+                        <ol className="list-decimal list-inside space-y-1">
+                          {item.answerList.map((step, i) => (
+                            <li key={i}>{step}</li>
+                          ))}
+                        </ol>
+                      ) : (
+                        item.answer
+                      )}
                     </div>
                   )}
                 </div>
