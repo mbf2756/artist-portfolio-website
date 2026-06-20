@@ -342,13 +342,13 @@ const ArtistPortfolio = () => {
                   },
                   {
                     icon: '✦',
-                    title: 'You're involved throughout',
-                    body: 'I send progress updates as I work, so you're never left wondering. If something doesn't feel right, we fix it before it's finished.'
+                    title: "You're involved throughout",
+                    body: "I send progress updates as I work, so you're never left wondering. If something doesn't feel right, we fix it before it's finished."
                   },
                   {
                     icon: '✦',
                     title: 'Built to last generations',
-                    body: '17+ years of practice across four mediums means I know which materials and techniques create artwork that won't fade — physically or emotionally.'
+                    body: "17+ years of practice across four mediums means I know which materials and techniques create artwork that won't fade — physically or emotionally."
                   }
                 ].map((item, i) => (
                   <div key={i} className="bg-white rounded-2xl p-8 shadow-sm border border-amber-100 hover:shadow-lg transition-shadow">
